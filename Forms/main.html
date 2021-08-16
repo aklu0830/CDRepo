@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
     <h1>Registration Form</h1>
 </head>
@@ -32,24 +34,22 @@
         <input type="date" name="date">
     </div>
     <div>
-        <label>Gender Identity</label>
+        <p>Gender Identity</p>
 
     </div>
     <div>
-        <input type="button" id="male">
+        <input type="radio" id="male">
         <label for="male">Male</label>
-        <input type="button" id="female">
+        <input type="radio" id="female">
         <label for="female">Female</label>
-        <input type="button" id="nonbi">
+        <input type="radio" id="nonbi">
         <label for="nonbi">Non-binary</label>
-        <input type="button" id="prefernot">
+        <input type="radio" id="prefernot">
         <label for="prefernot">I prefer not to answer</label>
     </div>
     <div>
-        <label>A short description about myself</label>
-    </div>
-    <div>
-        <textarea></textarea>
+        <p>A short description about myself</p>
+        <textarea name="description" cols="50" rows="5"></textarea>
     </div>
     <div>
         <label for="favlang">Favorite Language: </label>
@@ -60,10 +60,12 @@
             <option value="Java">Java</option>
         </select>
     </div>
+
     <div>
         <input type="checkbox" name="cb" id="checkboxx">
         <label for="checkboxx"> Yes I would like to receive periodic email updates</label>
     </div>
+
     <div>
         <button type="submit">Create account</button>
     </div>
