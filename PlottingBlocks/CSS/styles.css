@@ -14,20 +14,29 @@
 
 }
 .side-nav {
-    margin-top: 20px;
+
     height: 300px;
     width: 200px;
     background-color: blue;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
 }
 .main {
     height: 400px;
-    width: 700px;
+    width: 690px;
     background-color: red;
+    display: inline-block;
+    margin-left: 15px;
+
 }
 .sub-content {
+
     height: 200px;
     width: 210px;
     background-color: yellow;
+    display: inline-block;
+    margin: 5px;
 }
 #advertisement {
     height: 120px;
