@@ -1,0 +1,20 @@
+#MyCloud{
+    background-color: black;
+    color: white;
+    font-family: "Berlin Sans FB";
+}
+
+#CompletedProjects{
+    background-color: rebeccapurple;
+    text-align: center;
+    color: white;
+    font-family: "Berlin Sans FB";
+
+}
+
+#ContactUs{
+    background-color: lightskyblue;
+    text-align: right;
+    font-size: larger;
+
+}
