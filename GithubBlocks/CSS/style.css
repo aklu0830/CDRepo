@@ -7,9 +7,15 @@
 
 .GBT{
     text-align: center;
+    font-size: 30px;
 }
 
 #container-1{
+
+    margin: auto;
+    background-color: deepskyblue;
+    min-height: 250px;
+    width: 800px;
 
 }
 
@@ -18,5 +24,23 @@
 }
 
 #container-3 {
+
+}
+
+.image{
+    margin-left: 25px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+
+
+
+
+
+
+
+
+
 
 }
