@@ -1,0 +1,36 @@
+*{
+   box-sizing: border-box;
+
+
+}
+
+.row{
+
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    border-right: white 170px;
+
+
+}
+
+.col{
+
+    flex-basis: 120px;
+    position: sticky;
+    background-color: gray;
+    flex-shrink: 1;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+
+}
+
+.col-2{
+
+}
+
+.col-3{
+
+}
