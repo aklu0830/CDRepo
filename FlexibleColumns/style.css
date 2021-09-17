@@ -1,36 +1,26 @@
-*{
-   box-sizing: border-box;
-
-
-}
-
-.row{
-
-
+.row {
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
-    border-right: white 170px;
-
-
+    color: aliceblue
 }
 
-.col{
-
-    flex-basis: 120px;
-    position: sticky;
-    background-color: gray;
-    flex-shrink: 1;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
-
+.col {
+    flex: 1;
+    background-color: cadetblue;
+    margin: 10px;
+    padding: 30px;
 }
 
-.col-2{
-
+.col-2 {
+    flex: 2;
+    background-color: cadetblue;
+    margin: 10px;
+    padding: 30px;
 }
 
-.col-3{
-
+.col-3 {
+    flex: 3;
+    background-color: cadetblue;
+    margin: 10px;
+    padding: 30px;
+    
 }
