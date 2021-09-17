@@ -1,0 +1,71 @@
+*{
+
+    box-sizing: border-box;
+    justify-content: space-between;
+    text-decoration: none;
+    min-height: 10px;
+    font-family: "Roboto Thin";
+    color: lightgray;
+    font-size: 18px;
+
+
+
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    background-color: darkslategray;
+    margin-left: 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+
+
+
+}
+
+.nav-title{
+    color: white;
+    margin-left: 10px;
+    font-size: 30px;
+
+
+
+
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    background-color: darkslategray;
+
+
+
+
+
+
+}
+.active{
+    color: white;
+    background-color: darkslategray;
+
+
+
+
+}
+
+.btn {
+    background-color: lightskyblue;
+    border: black 3px solid;
+    box-shadow: black 3px 3px;
+    color: white;
+    font-family: "Roboto Dark";
+
+
+
+}
+
+body{
+    background-color: black;
+}
