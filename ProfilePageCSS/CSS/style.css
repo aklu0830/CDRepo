@@ -47,8 +47,6 @@
     display: inline;
     justify-content: space-between;
 
-
-
 }
 
 .sign-out-button {
@@ -131,7 +129,6 @@
 .connectionreq-box {
 
 
-    width: 230px;
     height: 185px;
     border: 3px gray solid;
     border-radius: 5px;
@@ -140,7 +137,6 @@
 
 .connectionreq-box-header {
     height: 50px;
-
     background-color: darkslategray;
 }
 
@@ -170,8 +166,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 2px black solid;;
-
+    border: 2px black solid;
 
 
 }
@@ -205,7 +200,6 @@
     display: flex;
     padding: 20px;
     height: 60px;
-    width: 100%;
     background-color: darkslategray;
     color: white;
     font-size: 20px;
@@ -221,5 +215,71 @@
 .education-box-description h4 {
     padding: 5px;
     color: darkgray;
+}
+
+.your-connections-box {
+
+    border-radius: 3px;
+    border: 3px gray solid;
+    margin-top: 30px;
+}
+
+.your-connections-box-header {
+
+    display: flex;
+    padding: 10px;
+    height: 40px;
+    background-color: darkslategray;
+    color: white;
+    font-size: 15px;
+
+}
+
+.your-connections-box-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+
+
+
+
+}
+
+.your-connections-box-amount {
+    display: flex;
+    width: 50px;
+    height: 25px;
+    background-color: lightgray;
+    border-radius: 50%;
+    border: 1px black solid;
+    color: black;
+    font-size: 11px;
+
+
+
+
+}
+
+.your-connections-box-amount h2 {
+    align-items: center;
+    margin-left: 6px;
+
+
+
+}
+
+.image-format {
+
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px black solid;
+
+}
+
+.your-connections-box-text h2  {
+
 }
 
