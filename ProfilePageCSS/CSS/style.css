@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Light";
+
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height:60px;
+
+
+
+}
+
+.nav-title{
+    color: white;
+    margin-left: 130px;
+    font-size: 30px;
+
+
+
+}
+.nav-links {
+    margin-left: 40px;
+    display: flex;
+    background-color: black;
+    display: inline;
+    justify-content: space-between;
+
+
+
+}
+
+.sign-out-button {
+    color: white;
+    margin-left: 100px;
+    background-color: lightskyblue;
+    font-size: 20px;
+    width: 100px;
+
+}
+
+.profile-box {
+
+    width: 400px;
+    height: 370px;
+
+    margin-top: 50px;
+    border-radius: 3px;
+    margin-left: 130px;
+    border: 3px gray solid;
+
+}
+.profile-box-header {
+    width: 394px;
+    height: 100px;
+    background-color: lightsteelblue;
+    margin: auto;
+
+}
+
+.profile-photo {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border: 3px black solid;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 60px;
+
+}
+
+.profile-name {
+    width: 180px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.profile-location {
+
+}
+
+.profile-location-icon {
+
+    width: 13px;
+    height: 21px;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+.profile-location-text {
+    font-size: 19px;
+    margin-left: 10px;
+
+    vertical-align: 4px
+
+}
+
+.profile-skills {
+    margin-left: 40px;
+
+}
+
