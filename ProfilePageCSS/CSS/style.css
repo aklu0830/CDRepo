@@ -64,7 +64,6 @@
     border-radius: 3px;
     border: 3px gray solid;
 
-
 }
 .profile-box-header {
 
@@ -171,13 +170,13 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 2px black solid;
+    border: 2px black solid;;
+
 
 
 }
 
 .connectionreq-userlist {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -197,15 +196,30 @@
 
 
 .education-box {
-    display: flex;
-    border: darkslategray 3px solid;
     border-radius: 3px;
-
+    border: 3px gray solid;
+    margin-top: 30px;
 }
 
 .education-box-header {
+    display: flex;
+    padding: 20px;
     height: 60px;
-    background: darkslategray;
+    width: 100%;
+    background-color: darkslategray;
+    color: white;
+    font-size: 20px;
 
+
+}
+.education-box-description {
+    color: black;
+    padding: 20px;
+
+}
+
+.education-box-description h4 {
+    padding: 5px;
+    color: darkgray;
 }
 
