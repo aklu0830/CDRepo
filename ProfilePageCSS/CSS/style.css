@@ -6,6 +6,23 @@
 
 
 }
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1000px;
+    margin: 0 auto;
+    gap: 30px;
+
+}
+
+.column-1 {
+    flex: 2;
+}
+
+.column-2 {
+    flex: 1;
+}
 
 .nav {
     display: flex;
@@ -13,17 +30,14 @@
     background-color: black;
     color: white;
     height:60px;
-
+    margin-bottom: 50px;
 
 
 }
 
 .nav-title{
     color: white;
-    margin-left: 110px;
     font-size: 30px;
-
-
 
 }
 .nav-links {
@@ -47,18 +61,14 @@
 }
 
 .profile-box {
-
-    width: 430px;
-    height: 370px;
-    margin-top: 50px;
     border-radius: 3px;
-    margin-left: 110px;
     border: 3px gray solid;
+
 
 }
 .profile-box-header {
 
-    width: 425px;
+
     height: 100px;
     background-color: lightsteelblue;
     margin: auto;
@@ -68,7 +78,6 @@
 .profile-photo {
     position: absolute;
     width: 75px;
-    height: 75px;
     border: 3px black solid;
     border-radius: 50%;
     margin-left: 30px;
@@ -76,11 +85,15 @@
 
 }
 
+.profile-info {
+    padding: 30px;
+}
+
 .profile-name {
     width: 180px;
-    height: 30px;
+
     margin-top: 40px;
-    margin-left: 30px;
+
     font-size: 30px;
 }
 
@@ -91,19 +104,16 @@
 .profile-location-icon {
 
     width: 13px;
-    height: 21px;
-    margin-top: 15px;
-    margin-left: 40px;
+
 }
 .profile-location-text {
     font-size: 19px;
     margin-left: 10px;
-    vertical-align: 4px
+
 
 }
 
 .profile-skills {
-    margin-left: 40px;
     margin-top: 20px;
 }
 
@@ -111,20 +121,18 @@
     display: flex;
     width: 20px;
     height: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
+
 }
 
 .profile-edit-text {
-    margin-top: 16px;
+
     margin-left: 4px;
     white-space: nowrap;
 }
 
 .connectionreq-box {
 
-    margin-left: 570px;
-    margin-top: -370px;
+
     width: 230px;
     height: 185px;
     border: 3px gray solid;
@@ -165,30 +173,32 @@
     height: 30px;
     border-radius: 50%;
     border: 2px black solid;
-    margin-left: 10px;
+
 
 }
 
+.connectionreq-userlist {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
 .connectionreq-usernames {
-    align-content: flex-end;
-    position: absolute;
-    margin-top: 15px;
-    margin-left: 20px;
+
 
 }
 
 .connectionreq-optionimg {
-
-    display: inline-block;
     width: 30px;
-    height: auto;
-    margin-right: 5px;
 
+}
 
-
-
-
-
+.connectionreq-profile-name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
 
 }
