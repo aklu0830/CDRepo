@@ -3,21 +3,18 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Roboto Light";
-
-
 }
 .main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 1000px;
+    width: 40%;
     margin: 0 auto;
     gap: 30px;
-
 }
 
 .column-1 {
-    flex: 1.5;
+    flex: 2;
 }
 
 .column-2 {
@@ -31,8 +28,6 @@
     color: white;
     height:60px;
     margin-bottom: 50px;
-
-
 }
 
 .nav-title{
@@ -46,7 +41,6 @@
     background-color: black;
     display: inline;
     justify-content: space-between;
-
 }
 
 .sign-out-button {
@@ -129,7 +123,7 @@
 .connectionreq-box {
 
 
-    height: 185px;
+
     border: 3px gray solid;
     border-radius: 5px;
 
@@ -255,10 +249,6 @@
     border: 1px black solid;
     color: black;
     font-size: 11px;
-
-
-
-
 }
 
 .your-connections-box-amount h2 {
@@ -276,7 +266,6 @@
     height: 30px;
     border-radius: 50%;
     border: 1px black solid;
-
 }
 
 .your-connections-box-text h2  {
