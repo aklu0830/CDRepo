@@ -1,12 +1,142 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.top-container {
-    width: 400px;
-    height: 100px;
-    background: gray;
+    font-family: Arial;
 
 }
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70%;
+    gap: 30px;
+
+
+
+}
+
+.col-1 {
+    flex: 2;
+
+}
+
+.col-2 {
+    flex: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: darkgrey;
+}
+
+body {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.searchbar {
+    width: 40%;
+    height: 30px;
+    border-radius: 5px;
+
+}
+.login-btn {
+    background-color: cornflowerblue;
+    color: white;
+    border: black 3px solid;
+    box-shadow: black 1px 2px;
+    padding: 0.5rem 2rem;
+    font-size: 20px;
+
+}
+
+.defbox-1 {
+    display: flex;
+    border: black 3px solid;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.defbox-1 .noun {
+    margin-left: 0.75em;
+}
+
+.defbox-1 .plural-1 {
+    margin-bottom: 10px;
+}
+
+.like-box-1 {
+
+}
+
+
+.defbox-2 {
+    border: black 3px solid;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.defbox-2 h1 {
+
+
+}
+
+.defsect-1 {
+    position: absolute;
+}
+
+.defsect-2 {
+    position: absolute;
+    margin-left: 140px;
+}
+
+.defbox-2 .noun {
+    margin-left: 0.75em;
+}
+
+.defbox-2 .plural-2 {
+    margin-bottom: 10px;
+}
+
+.like-box-1 {
+
+    background-color: yellowgreen;
+    color: black;
+    border: 2px black solid;
+    box-shadow: black 2px 2px;
+    padding: 3px;
+}
+
+.like-box-2 {
+
+    background-color: yellowgreen;
+    padding: 3px;
+    color: black;
+    border: 2px black solid;
+    box-shadow: black 2px 2px;
+}
+
+.col-2-thing {
+    display: flex;
+    border: black 3px solid;
+    margin-top: 20px;
+    padding: 10px;
+    height: 11em;
+}
+
+.add-def-button {
+    background-color: cornflowerblue;
+    color: white;
+
+    box-shadow: black 1px 2px;
+    margin-top: 30px;
+    padding: 0.5rem 2rem;
+
+}
+
