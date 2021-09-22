@@ -1,20 +1,21 @@
-var likes = document.querySelector("ctss");
-var likes_1 = 0;
-var likes_2 = 0;
-var likes_3 = 0;
+
+var likes_1 = 9;
+var likes_2 = 12;
+var likes_3 = 9;
 function like_1() {
     likes_1++;
-    likes.innerText = likes + " likes(s)";
+    document.getElementById("likes-counter-1").innerText = likes_1 +  " like(s)";
 }
 
 function like_2() {
     likes_2++;
-    likes.innerText = likes + " likes(s)";
-
+    document.getElementById("likes-counter-2").innerText = likes_2 +  " like(s)";
 }
 
 function like_3() {
     likes_3++;
-    likes.innerText = likes + " likes(s)";
+    document.getElementById("likes-counter-3").innerText = likes_3 +  " like(s)";
+
+
 
 }
