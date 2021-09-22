@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+
+
+}
+
+.main {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+
+
+
+}
+
+.col-1 {
+    flex: 0.85;
+
+}
+.col-2 {
+    flex: 2;
+}
+
+header {
+    display: flex;
+    background-color: black;
+    padding: 0.75em;
+    color: white;
+
+}
+
+.your-feed {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    padding: 0.2em;
+    margin: 0 auto;
+}
+
+.profile-box {
+
+    border: black 5px solid;
+    position: absolute;
+    height: 21em;
+
+
+    margin: 0 auto;
+}
+
+.profile-box .profile-image {
+    border-radius: 50%;
+    border: 3px black solid;
+    margin: 1em;
+}
+
+.profile-box-name {
+
+}
+
+.placement {
+    padding: 1em;
+
+}
+.placement a {
+    margin-left: 10px;
+}
+
+.comment-1 {
+    border: black 5px solid;
+    height: 15em;
+}
+
+.comment-2 {
+    border: black 5px solid;
+    height: 15em;
+    margin-top: 10px;
+}
+
+.comment-3 {
+    border: black 5px solid;
+    height: 15em;
+    margin-top: 10px;
+}
+
+.placement-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.placement-2  h1 {
+
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-section {
+    padding: 20px;
+    margin-top: 3em;
+}
+
+.like-button {
+    background-color: yellowgreen;
+    padding: 0.1em 0.4em;
+    border: black 3px solid;
+    box-shadow: black 4px 4px;
+    font-size: 20px;
+}
+
+
+
