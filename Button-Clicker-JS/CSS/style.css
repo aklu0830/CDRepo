@@ -11,8 +11,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 70%;
+    width: 50%;
     gap: 30px;
+    margin: 0 auto;
 
 
 
@@ -33,15 +34,21 @@ header {
     align-items: center;
     padding: 1em;
     background-color: darkgrey;
+
+
+
+
+
+
+
 }
 
 body {
-    width: 60%;
-    margin: 0 auto;
+
 }
 
 .searchbar {
-    width: 40%;
+    width: 30%;
     height: 30px;
     border-radius: 5px;
 
@@ -138,5 +145,9 @@ body {
     margin-top: 30px;
     padding: 0.5rem 2rem;
 
+}
+
+header h1 {
+    background-color: darkgrey;
 }
 

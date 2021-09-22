@@ -9,9 +9,11 @@
 <body>
 
 <header>
-    <h1>Dojanary</h1>
-    <input type="text" placeholder="Search" class="searchbar">
-    <button class="login-btn" onclick="login()"><b>Login</b></button>
+    <div class="main">
+        <h1>Dojanary</h1>
+        <input type="text" placeholder="Search" class="searchbar">
+        <button class="login-btn" onclick="login(this)"><b>Login</b></button>
+    </div>
 </header>
 
 <div class="main">
@@ -20,38 +22,39 @@
             <div class="defcontent-1-left">
                 <h3 class="defsect-2">A practitioner skilled in the<br>down problems wth <a href="#">zen</a>-like<br>
                     focus </h3>
-            <h1>ninja</h1>
+                <h1>ninja</h1>
 
+                <h3 class="noun"><em>noun</em></h3>
+
+                <h3 class="plural-1">Plural: <em>ninjas</em></h3>
+
+                <button class="like-box-1" onclick="alert ('Ninja was liked')">13 Likes</button>
+            </div>
+        </div>
+        <div class="defbox-2">
+            <div class="defsect-2"></div>
+            <h1>ninja</h1>
+            <h3 class="defsect-2">A <a href="#">programmer</a> who breaks<br>down problems wth <a
+                    href="#">zen</a>-like<br>
+                focus </h3>
             <h3 class="noun"><em>noun</em></h3>
 
-            <h3 class="plural-1">Plural: <em>ninjas</em></h3>
+            <h3 class="plural-2">Plural: <em>ninjas</em></h3>
+            <button class="like-box-2" onclick="alert ('Ninja was liked')"><b>37 Likes</b></button>
 
-            <button class="like-box-1" onclick="alert ('Ninja was liked')">13 Likes</button>
         </div>
     </div>
-    <div class="defbox-2">
-        <div class="defsect-2"></div>
-        <h1>ninja</h1>
-        <h3 class="defsect-2">A <a href="#">programmer</a> who breaks<br>down problems wth <a href="#">zen</a>-like<br>
-            focus </h3>
-        <h3 class="noun"><em>noun</em></h3>
+    <div class="col-2">
+        <div class="col-2-thing">
+            <div class="col-2-thing-content">
+                <h3>Dojonary is <br>defined by <b>YOU</b></h3>
+                <button id="rmbuttom" onclick="rmbutton(this)" class="add-def-button">Add Definition</button>
+            </div>
 
-        <h3 class="plural-2">Plural: <em>ninjas</em></h3>
-        <button class="like-box-2" onclick="alert ('Ninja was liked')"><b>37 Likes</b></button>
-
-    </div>
-</div>
-<div class="col-2">
-    <div class="col-2-thing">
-        <div class="col-2-thing-content">
-            <h3>Dojonary is <br>defined by <b>YOU</b></h3>
-            <button id="rmbuttom" onclick="rmbutton(this)" class="add-def-button">Add Definition</button>
         </div>
 
+
     </div>
-
-
-</div>
 </div>
 
 </body>
