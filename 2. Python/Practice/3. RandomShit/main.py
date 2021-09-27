@@ -1,4 +1,3 @@
-count = 3;
-for count in range(0,5):
-    print("Looping - ", count)
-    
+def number_of_food_groups():
+    return 5
+print(number_of_food_groups())
