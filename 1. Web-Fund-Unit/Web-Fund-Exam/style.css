@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    flex-wrap: wrap;
+
+
+}
+
+.main {
+    display: flex;
+    width: 55%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 5px;
+
+
+
+
+}
+
+.col-1 {
+    display: flex;
+    flex: 2;
+}
+
+.col-2 {
+    flex: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 5px;
+
+}
+
+
+
+.leaf-icon {
+    background-color: lightseagreen;
+    width: 4%;
+    border-radius: 20%;
+    rotation: 90deg;
+}
+
+.search-bar {
+    width: 60%;
+    border-radius: 9px;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+}
+.bottom-border {
+    border-bottom: black 3px solid;
+}
+
+.black-bar {
+    border-bottom: black 5px solid;
+    width: 100%;
+    font-size: 7px;
+    color: white;
+}
+.header-title {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Roboto Light";
+
+}
+
+.cart-icon  {
+    width: 3%;
+}
+
+.discover-box {
+    background-color: lightseagreen;
+    padding: 2em;
+    color: white;
+
+}
+
+.discover-box a {
+    text-decoration: none;
+
+
+}
+
+.discover-box-link {
+    color: white;
+}
+
+.discover-box-link h2 {
+    margin-top: 20px;
+
+}
+
+.arrow-icon-1 {
+    vertical-align: -10px;
+    width: 40px;
+}
+.arrow-icon-2 {
+    width: 40px;
+}
+
+.succulents {
+    width:50%;
+    background: url("images/assets/succulents-1.jpg");
+}
+
+.succulents:hover {
+    width: 50%;
+    background: url("images/assets/succulents-2.jpg");
+}
+
+.soothing-aloe-box {
+    margin-top: 30px;
+    background-color: lightseagreen;
+    display: flex;
+    height: 50px;
+
+}
+
+.soothing-aloe-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding-left: 25%;
+
+
+}
+
+.aloe-m {
+    height: 200px;
+    width: 100%;
+}
+
+.other-links {
+    background-color: powderblue;
+    width: 100%;
+    padding: 2em;
+
+
+}
+.other-links-images {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.other-links-imgnames {
+
+}
+
+
+.other-images-settings {
+    border-radius: 50%;
+    width: 120px;
+}
+
+.other-links-imgnames {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pop-up-box {
+
+    background-color: black;
+    margin: 0 auto;
+    position: center;
+}
+
+#popup {
+    top: auto;
+    bottom: 10px;
+    outline: none;
+}
+
+
+
+
