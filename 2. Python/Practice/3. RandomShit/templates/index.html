@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .cube {
+        height: 200px;
+        width: 200px;
+        border-radius: 10%;
+        outline: 3px solid black;
+    }
+
+    .shit{
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 2em;
+    }
+
+
+</style>
+<div class="shit">
+    {% for x in range(0,num): %}
+
+    <div class="cube" style="background-color: {{color}}"></div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
