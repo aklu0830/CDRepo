@@ -1,9 +1,30 @@
+class User:
+    def __init__(self, name, email):
+        self.user = name
+        self.email = email
+        self.account = BankAccount(int_rate=0.02, balance=0)
+
+    def makeDeposit(self, amount):
+        self.account.deposit(amount)
+
+    def make_withdrawal(self, amount):
+        self.account.withdraw(amount)
+
+    def display_user_balance(self):
+        self.account.display_account_info()
+
+    def transfer_money(self, User, amount):
+        self.make_withdrawal(amount)
+        User.makeDeposit(amount)
+        self.display_user_balance()
+        User.display_user_balance()
+
+
 class BankAccount:
     # don't forget to add some default values for these parameters!
     def __init__(self, int_rate, balance):
         self.intrate = int_rate
         self.bankbal = balance
-
 
     def deposit(self, amount):
         self.bankbal += amount
@@ -31,9 +52,7 @@ class BankAccount:
             print("Balance too low to apply interest")
         return self
 
+shit = User("Alex","Shit@gmail.com")
 
-acc_1 = BankAccount(0.0003, 400)
-acc_2 = BankAccount(0.0003, 600)
 
-acc_1.deposit(300).deposit(100).deposit(500).withdraw(200).yield_interest().display_account_info()
-acc_1.deposit(300).deposit(1500).withdraw(200).withdraw(200).withdraw(200).withdraw(200).yield_interest().display_account_info()
+shit.account.display_account_info()
