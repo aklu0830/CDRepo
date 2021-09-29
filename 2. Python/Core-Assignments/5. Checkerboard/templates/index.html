@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/CSS/style.css') }}">
+
+</head>
+<body>
+
+<div class="checkerboard-container">
+{% for x in range(0,width) %}
+    {% if x%2==0 %}
+    {% else %}
+        {% set temp=colorone %}
+        {% set colorone=colortwo %}
+        {% set colortwo=temp %}
+    {% endif %}
+    <div class="outer-horizontal">
+        {% for y in range(0,length) %}
+            {% if y%2==0 %}
+                    <div class="cube" style="background-color: {{ colorone }}"></div>
+            {% else %}
+                    <div class="cube" style="background-color: {{ colortwo }}"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endfor %}
+
+</div>
+
+
+
+</body>
+</html>

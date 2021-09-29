@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+
+
+
+}
+
+.checkerboard-container {
+
+
+}
+
+.cube {
+    width: 100px;
+    height: 100px;
+
+}
+
+
+.sub-2 {
+
+}
+
+.outer-horizontal {
+    display: flex;
+
+}
