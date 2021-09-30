@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+}
+
+.form-container {
+
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: darkslategray;
+    width: 400px;
+    border-radius: 1%
+
+}
+
+.form-labels {
+    color: white;
+}
+
+.title-top{
+    color: orange;
+}
+
+.results-container {
+
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: darkslategray;
+    width: 400px;
+    border-radius: 1%
+
+}
+
+.results-title {
+    color: blue;
+}
+.info-results-box {
+    margin-top: 20px;
+}
+
+.home-button-bottom {
+    margin-top: 30px;
+}
