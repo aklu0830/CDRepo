@@ -13,5 +13,14 @@ def cb(length, width, colorone, colortwo):
     return render_template('index.html', length=length, width=width, colorone=colorone, colortwo=colortwo)
 
 
+@app.route('/checkerboard/')
+def cbtwo():
+    length = 7
+    width = 4
+    colorone = "rebeccapurple"
+    colortwo = "blue"
+    return render_template('index.html', length=length, width=width, colorone=colorone, colortwo=colortwo)
+
+
 if __name__ == '__main__':
     app.run()
