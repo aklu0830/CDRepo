@@ -43,3 +43,5 @@ select first_name, last_name, age from ninjas where dojo_id=4;
 --Retrieve all the ninjas from the last dojo
 
 select first_name, last_name, age from ninjas where dojo_id=6;
+
+--Ret
