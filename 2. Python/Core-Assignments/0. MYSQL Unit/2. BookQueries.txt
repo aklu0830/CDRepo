@@ -1,0 +1,61 @@
+use books_schema;
+
+-- Create 5 different authors, Jane Austen, Emily Disckinson, Fyodor Dostoevsky,William Shakespeare, Lau Tzu 
+
+insert into authors(`name`, created_at, updated_at) values ('Jane Austen', now(), now());
+insert into authors(`name`, created_at, updated_at) values ('Emily Dickinson', now(), now());
+insert into authors(`name`, created_at, updated_at) values ('Fydon Dostoevsky', now(), now());
+insert into authors(`name`, created_at, updated_at) values ('William Shakespeare', now(), now());
+insert into authors(`name`, created_at, updated_at) values ('Lau Tzu', now(), now());
+
+-- Create 5 Books with the following names: C Sharp, Java, Python, PHP, Ruby
+
+insert into books(`title`, num_of_pages, `created_at`, `updated_at`) values ('C Sharp', 34, now(), now());
+insert into books(`title`, num_of_pages, `created_at`, `updated_at`) values ('Java', 34, now(), now());
+insert into books(`title`, num_of_pages, `created_at`, `updated_at`) values ('Python', 34, now(), now());
+insert into books(`title`, num_of_pages, `created_at`, `updated_at`) values ('PHP', 34, now(), now());
+insert into books(`title`, num_of_pages, `created_at`, `updated_at`) values ('Ruby', 34, now(), now());
+
+-- Change the book name of the C Sharp to C#
+
+update books set title = 'C#' where title='C Sharp';
+
+-- Change the name of the 4th author to Bill
+
+update authors set `name` = 'Bill' where id=4;
+
+-- Have the 1st author favorite the 1st 2 books
+
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(1, 1, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(1, 2, now(), now());
+
+-- Have the 2nd author favorite the 1st three books
+
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(2, 1, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(2, 2, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(2, 3, now(), now());
+
+-- Have the third author favorite the 1st 4 books
+
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(3, 1, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(3, 2, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(3, 3, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(3, 4, now(), now());
+
+-- Have the fourth author favorite all the books
+
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(4, 1, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(4, 2, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(4, 3, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(4, 4, now(), now());
+insert into favorite_books(author_id, book_id, created_at, updated_at) values(4, 5, now(), now());
+
+-- Retreive all the authors who favorited the 3rd book
+
+select GROUP_CONCAT(' ', authors.name) AS Authors
+from favorite_books
+JOIN authors ON favorite_books.author_id = authors.id where favorite_books.book_id=3 group by favorite_books.book_id;
+
+
+
+
