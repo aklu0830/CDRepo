@@ -1,0 +1,45 @@
+use dojos_and_ninjas;
+
+--Create 3 Dojos
+
+insert into dojos(`name`, `created_at`, `updated_at`) values ('Chicago Location', now(), now());
+insert into dojos(`name`, `created_at`, `updated_at`) values ('Seattle Location', now(), now());
+insert into dojos(`name`, `created_at`, `updated_at`) values ('New York Location', now(), now());
+
+--Delete the Dojo's that where just created
+
+DELETE FROM dojos where name='Chicago Location';
+DELETE FROM dojos where name='Seattle Location';
+DELETE FROM dojos where name='New York Location';
+
+--Create 3 more dojo's
+
+insert into dojos(`name`, `created_at`, `updated_at`) values ('Bellevue Location', now(), now());
+insert into dojos(`name`, `created_at`, `updated_at`) values ('Boise Location', now(), now());
+insert into dojos(`name`, `created_at`, `updated_at`) values ('Silicon Valley Location', now(), now());
+
+--Create 3 ninjas that belone to the 1st dojo
+
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Jacob', 'Derpface', 17, 4, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Lyman', 'Woods', 24, 4, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Hope', 'Sutter', 33, 4, now(), now());
+
+--Create 3 ninjas that belone to the 2nd dojo
+
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Raj', 'Daya', 17, 5, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Deiter', 'Michaelson', 24, 5, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Stuff', 'Fobbs', 33, 5, now(), now());
+
+--Create 3 ninjas that belone to the 3rd dojo
+
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Chris', 'Murphy', 19, 6, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Smokey', 'Lovelace', 27, 6, now(), now());
+insert into ninjas(`first_name`, `last_name`, age, `dojo_id`, `created_at`, `updated_at`) values ('Papa', 'Smurf', 21, 6, now(), now());
+
+--Retrieve all the ninjas from the 1st dojo
+
+select first_name, last_name, age from ninjas where dojo_id=4;
+
+--Retrieve all the ninjas from the last dojo
+
+select first_name, last_name, age from ninjas where dojo_id=6;
