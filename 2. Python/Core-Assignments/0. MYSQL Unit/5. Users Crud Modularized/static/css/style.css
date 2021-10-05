@@ -1,0 +1,24 @@
+.header-title{
+    display: flex;
+    justify-content: center;
+}
+
+.add-user-title{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+    margin: 0 auto;
+    width: 400px;
+    background-color: darkslategray;
+    padding: 20px;
+    border-radius: 5%;
+    color: aqua;
+
+
+}
+
+.button-sub {
+    margin-top: 10px ;
+}
