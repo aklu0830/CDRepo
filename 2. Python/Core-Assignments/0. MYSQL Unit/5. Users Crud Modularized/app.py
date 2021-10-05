@@ -26,6 +26,10 @@ def createuseraction():
     User.createusr(first_name, last_name, email)
     return redirect("/users")
 
+@app.route("/users/")
+def red():
+    return redirect("/users")
+
 
 
 if __name__ == '__main__':

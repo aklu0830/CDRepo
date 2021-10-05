@@ -18,6 +18,7 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Created At</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,11 @@
         <td>{{ oneuser.last_name }}</td>
         <td>{{ oneuser.email }}</td>
         <td>{{ oneuser.created_at }}</td>
+        <td>
+            <a>Show |</a>
+            <a> Edit |</a>
+            <a> Delete</a>
+        </td>
         </tr>
     {% endfor %}
 
@@ -34,7 +40,7 @@
 
 </table>
 <form>
-<button class="btn btn-primary" formaction="/users/new">Add New User</button>
+<button class="btn btn-primary">Add New User</button>
 </form>
 </body>
 </html>
