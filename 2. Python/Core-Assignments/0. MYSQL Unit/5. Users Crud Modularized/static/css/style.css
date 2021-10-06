@@ -27,3 +27,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+.action-button {
+
+}
+
+.tbc {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.place {
+    margin: 0 auto;
+}

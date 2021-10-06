@@ -11,7 +11,7 @@
 
 <h1 class="header-title">Here are our users!!!</h1>
 
-<table class="table">
+<table class="tbc table">
     <thead>
     <tr>
         <th>First Name</th>
@@ -24,23 +24,26 @@
     <tbody>
     {% for oneuser in users %}
         <tr>
-        <td>{{ oneuser.first_name }}</td>
-        <td>{{ oneuser.last_name }}</td>
-        <td>{{ oneuser.email }}</td>
-        <td>{{ oneuser.created_at }}</td>
-        <td>
-            <a>Show |</a>
-            <a> Edit |</a>
-            <a> Delete</a>
-        </td>
+            <td>{{ oneuser.first_name }}</td>
+            <td>{{ oneuser.last_name }}</td>
+            <td>{{ oneuser.email }}</td>
+            <td>{{ oneuser.created_at }}</td>
+            <td>
+                <form>
+                    <button class="btn btn-info">Show</button>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger" formaction="/rmuser/{{ oneuser.id }}">Delete</button>
+                </form>
+
+            </td>
         </tr>
     {% endfor %}
 
     </tbody>
 
 </table>
-<form action="/users/new">
-<button class="btn btn-primary">Add New User</button>
+<form class="place" action="/users/new">
+    <button class="btn btn-primary place">Add New User</button>
 </form>
 </body>
 </html>

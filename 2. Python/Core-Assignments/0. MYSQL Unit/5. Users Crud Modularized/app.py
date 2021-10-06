@@ -20,15 +20,20 @@ def createuser():
 
 @app.route("/process", methods=['POST'])
 def createuseraction():
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    email = request.form['email']
-    User.createusr(first_name, last_name, email)
+
+    data = {"fname" : request.form['first_name'], "lname" : request.form['last_name'], "eml" : request.form['email']}
+
+    User.createusr(data)
     return redirect("/users")
 
 @app.route("/users/")
 def red():
     return redirect("/users")
+
+@app.route("/rmuser/<int:usrid>")
+def deluser(usrid):
+    User.dropuser(usrid)
+    return redirect('/users')
 
 
 

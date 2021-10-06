@@ -13,7 +13,7 @@ class MySQLConnection:
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor,
                                      autocommit=True)
-        # establish the connection to the database
+        # establish the connection to the database6
         self.connection = connection
 
     # the method to query the database

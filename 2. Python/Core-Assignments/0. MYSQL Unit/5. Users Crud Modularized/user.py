@@ -23,11 +23,22 @@ class User:
         return userlist
 
     @classmethod
-    def createusr(self, fname, lname, eml):
+    def createusr(self, data):
 
+        query = "insert into users(first_name, last_name, email, created_at, updated_at) values(%(fname)s,%(lname)s,%(eml)s, now(), now());"
 
-        query = f"insert into users(first_name, last_name, email, created_at, updated_at) values('{fname}','{lname}','{eml}', now(), now());"
+        send = connectToMySQL('userscr').query_db(query, data)
+
+        return
+
+    @classmethod
+    def dropuser(self, usrid):
+        query = f"delete from users where id={usrid};"
 
         send = connectToMySQL('userscr').query_db(query)
 
         return
+
+    @classmethod
+    def getuser(cls, usrid):
+        query = f"select * from users where id={usrid};"
