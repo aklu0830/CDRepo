@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
 }
+.main {
+
+    margin: 0 auto;
+    width: 800px;
+
+}
 
 .add-user-title{
     display: flex;
@@ -32,11 +38,23 @@
 
 }
 
-.tbc {
-    margin: 0 auto;
-    width: 1000px;
-}
 
 .place {
     margin: 0 auto;
+}
+
+.user-info-box {
+    background-color: cornflowerblue;
+    color: aqua;
+    border-radius: 3%;
+
+}
+
+.value-cont {
+    padding: 10px;
+
+
+}
+.options {
+    padding: 10px;
 }

@@ -1,4 +1,8 @@
+import this
+
 from mysqlconnection import connectToMySQL
+
+
 # model the class after the friend table from our database
 class User:
     def __init__(self, data):
@@ -6,12 +10,14 @@ class User:
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
-        self.created_at = data["DATE_FORMAT(created_at, '%W %M %d %Y')"]
-        self.updated_at = data["DATE_FORMAT(updated_at, '%W %M %d %Y')"]
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
+
+
     # Now we use class methods to query our database
     @classmethod
     def get_all(cls):
-        query = "select *, DATE_FORMAT(updated_at, '%W %M %d %Y'), DATE_FORMAT(created_at, '%W %M %d %Y') from users;"
+        query = "select * from users;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
         results = connectToMySQL('userscr').query_db(query)
         # Create an empty list to append our instances of friends
@@ -24,7 +30,6 @@ class User:
 
     @classmethod
     def createusr(self, data):
-
         query = "insert into users(first_name, last_name, email, created_at, updated_at) values(%(fname)s,%(lname)s,%(eml)s, now(), now());"
 
         send = connectToMySQL('userscr').query_db(query, data)
@@ -40,5 +45,19 @@ class User:
         return
 
     @classmethod
-    def getuser(cls, usrid):
-        query = f"select * from users where id={usrid};"
+    def getuser(cls, data):
+        print(data)
+        query = "select * from users where id=%(user_id)s;"
+
+        send = connectToMySQL('userscr').query_db(query, data)
+
+        return send[0]
+
+    @classmethod
+    def savechanges(self, data):
+
+        query = "update users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at=now() where id=%(userid)s"
+
+        send = connectToMySQL('userscr').query_db(query, data)
+
+        return
