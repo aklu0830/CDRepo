@@ -1,0 +1,25 @@
+.main {
+    margin: 0 auto;
+    width: 400px;
+
+}
+
+.form-header {
+    display: flex;
+    justify-content: center;
+    color: dodgerblue;
+}
+
+.form-container {
+    margin-top: 40px;
+    background-color: #33404d;
+    padding: 30px;
+    color: aqua;
+    border-radius: 10%;
+
+
+}
+
+.spacer {
+    margin-top: 10px;
+}

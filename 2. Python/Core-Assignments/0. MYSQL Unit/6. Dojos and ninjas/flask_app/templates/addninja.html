@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Ninja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/addninja.css') }}">
 </head>
 <body>
+<div class="main">
+    <form method="post" action="/makeninja">
+        <div class="formgroup form-container">
+            <h1 class="form-header">New Dojo</h1>
+            <label><h6>Dojo</h6></label>
+            <select name="location" class="form-control">
+                {% for x in dojoslist %}
+                    <option value="{{ x.dojo_id }}">{{ x.dojo_name }}</option>
+                {% endfor %}
+            </select>
+            <label class="spacer"><h6>First Name:</h6></label>
+            <input class="form-control" type="text" name="first_name">
+            <label class="spacer"><h6>Last Name:</h6></label>
+            <input class="form-control" type="text" name="last_name">
+            <label class="spacer"><h6>Age</h6></label>
+            <input class="form-control" type="number" name="age">
+            <button class="btn btn-primary spacer">Add Ninja</button>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>

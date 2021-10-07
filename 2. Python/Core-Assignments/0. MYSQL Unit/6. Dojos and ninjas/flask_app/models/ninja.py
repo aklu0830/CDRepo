@@ -1,5 +1,4 @@
 
-
 from flask_app.config.mysqlconnection import connectToMySQL
 
 
@@ -18,9 +17,9 @@ class Ninja:
     # Now we use class methods to query our database
     @classmethod
     def get_all(cls):
-        query = "select * from users;"
+        query = "select * from ninjas;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('userscr').query_db(query)
+        results = connectToMySQL('dojos_and_ninjas').query_db(query)
         # Create an empty list to append our instances of friends
         userlist = []
         # Iterate over the db results and create instances of friends with cls.
@@ -30,35 +29,35 @@ class Ninja:
         return userlist
 
     @classmethod
-    def createusr(self, data):
-        query = "insert into users(first_name, last_name, email, created_at, updated_at) values(%(fname)s,%(lname)s,%(eml)s, now(), now());"
+    def createninja(self, data):
+        query = "insert into ninjas(first_name, last_name, age, created_at, updated_at, dojo_id) values(%(first_name)s,%(last_name)s,%(age)s, now(), now(), %(dojo_id)s);"
 
-        send = connectToMySQL('userscr').query_db(query, data)
+        send = connectToMySQL('dojos_and_ninjas').query_db(query, data)
 
         return
 
     @classmethod
-    def dropuser(self, usrid):
-        query = f"delete from users where id={usrid};"
+    def removeninjauser(self, data):
+        query = f"delete from ninjas where id=%(ninja_id)s;"
 
-        send = connectToMySQL('userscr').query_db(query)
+        send = connectToMySQL('dojos_and_ninjas').query_db(query ,data)
 
         return
 
     @classmethod
     def getuser(cls, data):
         print(data)
-        query = "select * from users where id=%(user_id)s;"
+        query = "select * from ninjas where id=%(ninja_id)s;"
 
-        send = connectToMySQL('userscr').query_db(query, data)
+        send = connectToMySQL('dojos_and_ninjas').query_db(query, data)
 
         return send[0]
 
     @classmethod
     def savechanges(self, data):
 
-        query = "update users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at=now() where id=%(userid)s"
+        query = "update ninjas set first_name = %(first_name)s, last_name = %(last_name)s, age = %(age)s, updated_at=now() where id=%(userid)s"
 
-        send = connectToMySQL('userscr').query_db(query, data)
+        send = connectToMySQL('dojos_and_ninjas').query_db(query, data)
 
         return
