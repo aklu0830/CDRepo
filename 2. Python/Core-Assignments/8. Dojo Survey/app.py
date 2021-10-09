@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session, request, redirect
 
+
 app = Flask(__name__)
 
 app.secret_key = 'stuff'
@@ -35,6 +36,9 @@ def result():
     comments = session['Comments']
 
     return render_template('result.html', name=name, location=location, language=language, comments=comments)
+
+
+
 
 
 if __name__ == '__main__':

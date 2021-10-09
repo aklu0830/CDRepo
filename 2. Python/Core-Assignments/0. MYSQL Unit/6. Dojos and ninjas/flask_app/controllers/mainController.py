@@ -15,7 +15,11 @@ def listdojos():
 
 @app.route('/makedojo', methods=['POST','GET'])
 def makedojo():
-    data = {"name": request.form['dname']}
+
+
+    data = {'name': request.form['name']}
+    if not dojo.Dojo.validate(request.form):
+        return redirect('/')
     print(data['name'])
     dojo.Dojo.createdojo(data)
 

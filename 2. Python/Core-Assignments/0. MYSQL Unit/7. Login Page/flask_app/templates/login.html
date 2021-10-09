@@ -11,18 +11,25 @@
 <div class="main-container">
     <div class="registration-container">
         <h2 class="registration-container-title">Register</h2>
-        <form method="post" action="makeuser">
+        {% with messages = get_flashed_messages(category_filter=["reg"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="flash messages alert alert-primary" role="alert">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="post" action="/makeuser">
             <div class="form-group">
                 <label class="spacer">First Name:</label>
-                <input class="form-control spacer-input" type="text">
+                <input class="form-control spacer-input" type="text" name="first_name">
                 <label class="spacer">Last Name:</label>
-                <input class="form-control spacer-input" type="text">
+                <input class="form-control spacer-input" type="text" name="last_name">
                 <label class="spacer">Email:</label>
-                <input class="form-control spacer-input" type="email">
+                <input class="form-control spacer-input" type="text" name="email">
                 <label class="spacer">Password:</label>
-                <input class="form-control spacer-input" type="password">
+                <input class="form-control spacer-input" type="password" name="password">
                 <label class="spacer">Confirm Password:</label>
-                <input class="form-control spacer-input" type="password">
+                <input class="form-control spacer-input" type="password" name="confirm-password">
 
             </div>
             <button class="btn btn-primary spacer">Register</button>
@@ -30,13 +37,20 @@
 
     </div>
     <div class="login-container">
-        <form>
-        <h2 class="login-container-title">Login</h2>
-        <div class="form-group"><label class="spacer">Email:</label>
-            <input class="form-control spacer-input" type="email">
-            <label class="spacer">Password:</label>
-            <input class="form-control spacer-input" type="password">
-        </div>
+        <form method="post" action="/login">
+            <h2 class="login-container-title">Login</h2>
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="flash messages alert alert-primary" role="alert">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="form-group"><label class="spacer">Email:</label>
+                <input class="form-control spacer-input" type="email" name="email">
+                <label class="spacer">Password:</label>
+                <input class="form-control spacer-input" type="password" name="password">
+            </div>
             <button class="spacer btn btn-success">Login</button>
         </form>
     </div>
