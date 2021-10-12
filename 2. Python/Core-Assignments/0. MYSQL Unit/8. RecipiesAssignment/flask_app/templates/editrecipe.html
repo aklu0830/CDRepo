@@ -12,7 +12,7 @@
     <h1 class="title">Welcome {{ session['first_name'] }} !!!</h1>
     <div class="options-bar">
         <form class="options">
-            <button class="btn btn-primary">Add New Recipe</button>
+            <button class="btn btn-primary" formaction="/dashboard">Dashboard</button>
             <button class="btn btn-info" formaction="/logout">Logout</button>
         </form>
     </div>
@@ -22,32 +22,55 @@
         <h2 class="recipe-container-title">Add Recipe</h2>
         <form class="form-container">
             <div class="subcontainer-1">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash messages alert alert-primary" role="alert">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <label><h6>Name:</h6></label>
-                <input class="form-control" type="text" placeholder="Enter Name" name="recipe_name">
+                <input class="form-control" type="text" placeholder="Enter Name" name="recipe_name"
+                       value="{{ rec.name }}">
                 <label class="spacer"><h6>Description: </h6></label>
-                <textarea class="form-control" rows="7" name="description" placeholder="Recipe Description"></textarea>
+                <textarea class="form-control" rows="7" name="description"
+                          placeholder="Recipe Description">{{ rec.description }}</textarea>
                 <label class="spacer"><h6>Instructions: </h6></label>
-                <textarea class="form-control" rows="7" name="instructions" placeholder="Provide instructions"></textarea>
+                <textarea class="form-control" rows="7" name="instructions"
+                          placeholder="Provide instructions">{{ rec.instructions }}</textarea>
 
 
             </div>
             <div class="subcontainter-2">
                 <label><h6>Date Made:</h6></label>
-                <input name="date" type="date" class="form-control dateinput">
+                <input name="date" type="date" class="form-control dateinput" value="{{ rec.created_at }}">
                 <label class="spacer"><h6>Under 30 Minutes?:</h6></label>
+                {% if rec.under30=="yes" %}
+                    <div>
+                        <input type="radio" name="underthirty" value="no">
+                        <label>No</label>
+                    </div>
 
-                <div>
-                    <input type="radio" name="underthirty" value="no"
-                           checked>
-                    <label>No</label>
-                </div>
+                    <div>
+                        <input type="radio" name="underthirty" value="yes" checked>
+                        <label>Yes</label>
+                    </div>
+                {% else %}
+                    <div>
+                        <input type="radio" name="underthirty" value="no" checked>
+                        <label>No</label>
+                    </div>
 
-                <div>
-                    <input type="radio" name="underthirty" value="yes">
-                    <label>Yes</label>
-                </div>
+                    <div>
+                        <input type="radio" name="underthirty" value="yes">
+                        <label>Yes</label>
+                    </div>
+                {% endif %}
 
-                <button class="btn btn-primary spacer">Add Recipe</button>
+
+                <button class="btn btn-success spacer" formaction="/applychanges" formmethod="post">Save Changes
+                </button>
+                <button class="btn btn-danger spacer" formaction="/toggleEdit">Discard Changes</button>
 
 
             </div>

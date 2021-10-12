@@ -9,10 +9,10 @@
 </head>
 <body>
 <div class="header">
-    <h1 class="title">Welcome {{ session['first_name'] }} !!!</h1>
+    <h1 class="title">Welcome {{ session['first_name'] }}!!!</h1>
     <div class="options-bar">
         <form class="options">
-            <button class="btn btn-primary">Add New Recipe</button>
+            <button class="btn btn-primary" formaction="/new/recipe">Add New Recipe</button>
             <button class="btn btn-info" formaction="/logout">Logout</button>
         </form>
     </div>
@@ -32,7 +32,13 @@
                 <tr>
                     <th>{{ recipe.name }}</th>
                     <th>{{ recipe.under30 }}</th>
-                    <th>None</th>
+                    <form>
+                    <th>
+                            <button class="btn btn-success" formaction="/show/{{ recipe.id }}">View Instructions</button>
+                            <button class="btn btn-primary" name="edit" value="{{ recipe.id }}" formmethod="post" formaction="/toggleEdit">Edit</button>
+                            <button class="btn btn-danger" value="{{ recipe.id }}" name="delete" formmethod="post" formaction="/delete">Delete</button>
+                    </th>
+                </form>
                 </tr>
             {% endfor %}
 

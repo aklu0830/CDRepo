@@ -12,7 +12,7 @@
     <h1 class="title">Welcome {{ session['first_name'] }} !!!</h1>
     <div class="options-bar">
         <form class="options">
-            <button class="btn btn-primary">Add New Recipe</button>
+            <button class="btn btn-primary" formaction="/dashboard">Dashboard</button>
             <button class="btn btn-info" formaction="/logout">Logout</button>
         </form>
     </div>
@@ -27,7 +27,8 @@
                 <label class="spacer"><h6>Description: </h6></label>
                 <textarea class="form-control" rows="7" name="description" placeholder="Recipe Description"></textarea>
                 <label class="spacer"><h6>Instructions: </h6></label>
-                <textarea class="form-control" rows="7" name="instructions" placeholder="Provide instructions"></textarea>
+                <textarea class="form-control" rows="7" name="instructions"
+                          placeholder="Provide instructions"></textarea>
 
 
             </div>
@@ -37,8 +38,7 @@
                 <label class="spacer"><h6>Under 30 Minutes?:</h6></label>
 
                 <div>
-                    <input type="radio" name="underthirty" value="no"
-                           checked>
+                    <input type="radio" name="underthirty" value="no" checked>
                     <label>No</label>
                 </div>
 
