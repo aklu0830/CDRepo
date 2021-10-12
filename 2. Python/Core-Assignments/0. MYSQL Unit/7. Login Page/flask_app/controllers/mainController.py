@@ -18,6 +18,7 @@ def makeuser():
     data = {"first_name": request.form['first_name'], "last_name": request.form['last_name'],
             "email": request.form['email'], "password": request.form['password'],
             "confirm-password": request.form['confirm-password']}
+
     if not user.User.regvalidate(data):
         return redirect('/')
     else:
@@ -28,7 +29,11 @@ def makeuser():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     data = {"email": request.form['email'], "password": request.form['password']}
-    if not user.User.login(data):
+
+    if not user.User.loginvalidate(data):
+        return redirect('/')
+
+    elif not user.User.login(data):
         flash(u"Login has failed", 'login')
         return redirect('/')
     else:
