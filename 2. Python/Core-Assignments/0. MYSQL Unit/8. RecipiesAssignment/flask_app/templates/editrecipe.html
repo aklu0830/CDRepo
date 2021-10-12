@@ -19,13 +19,13 @@
 </div>
 <div class="parent">
     <div class="recipe-container">
-        <h2 class="recipe-container-title">Add Recipe</h2>
+        <h2 class="recipe-container-title">Edit Recipe</h2>
         <form class="form-container">
             <div class="subcontainer-1">
-                {% with messages = get_flashed_messages() %}
+                {% with messages = get_flashed_messages(category_filter=["col-1"]) %}
                     {% if messages %}
                         {% for message in messages %}
-                            <p class="flash messages alert alert-primary" role="alert">{{ message }}</p>
+                            <p class="flash messages alert alert-danger" role="alert">{{ message }}</p>
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
@@ -42,6 +42,14 @@
 
             </div>
             <div class="subcontainter-2">
+                {% with messages = get_flashed_messages(category_filter=["col-2"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash messages alert alert-danger" role="alert">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
                 <label><h6>Date Made:</h6></label>
                 <input name="date" type="date" class="form-control dateinput" value="{{ rec.created_at }}">
                 <label class="spacer"><h6>Under 30 Minutes?:</h6></label>

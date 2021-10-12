@@ -86,5 +86,6 @@ class Recipe:
         if len(data['description']) < 5:
             flash(u'Description must be at least 5 characters', 'col-1')
             is_valid = False
-        
+
+
         return is_valid
