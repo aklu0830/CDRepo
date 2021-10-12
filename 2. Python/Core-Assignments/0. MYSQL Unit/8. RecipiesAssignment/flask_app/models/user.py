@@ -12,7 +12,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 bcrypt = Bcrypt(app)
 
-dbname = 'login_page'
+dbname = 'recipes'
 
 
 # model the class after the friend table from our database
@@ -98,13 +98,16 @@ class User:
 
         isApproved = False
 
-        query = "select first_name, email, password from users where email=%(email)s;"
+        query = "select id, first_name, email, password from users where email=%(email)s;"
         send = connectToMySQL(dbname).query_db(query, data)
         ehash = send[0]['password']
         isApproved = bcrypt.check_password_hash((ehash[2:len(ehash) - 1]), data['password'])
 
         if isApproved == True:
             session['first_name'] = send[0]['first_name']
+            session['user_id'] = send[0]['id']
+
+
 
         return isApproved
 
