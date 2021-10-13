@@ -2,6 +2,7 @@ from operator import sub
 
 import flask_bcrypt
 from flask import flash, session
+from decimal import Decimal
 
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_bcrypt import Bcrypt
@@ -85,7 +86,8 @@ class Painting:
         if len(data['description']) < 5:
             flash(u'Description must be at least 5 characters', 'painting')
             is_valid = False
-        if int(data['price']) < 1:
+        if Decimal(data['price']) < 1:
+
             flash(u'Price cannot be less than one', 'painting')
             is_valid = False
 
