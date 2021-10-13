@@ -33,9 +33,9 @@
                     <th>{{ painting.painting_name }}</th>
                     <th>{{ painting.first_name + " " + painting.last_name }}</th>
 
-                        {% if painting.painting_user_id == session['user_id'] %}
-                            <form>
-                          <th>
+                    {% if painting.painting_user_id == session['user_id'] %}
+                        <form>
+                            <th>
                                 <button class="btn btn-success" formaction="/show/{{ painting.painting_id }}">View
                                     Information
                                 </button>
@@ -46,15 +46,17 @@
                                         formmethod="post" formaction="/delete">Delete
                                 </button>
                             </th>
-                            </form>
-                        {% else %}
-                            <form>
+                        </form>
+                    {% else %}
+                        <form>
                             <th>
-                                None Available
+                                <button class="btn btn-success" formaction="/show/{{ painting.painting_id }}">View
+                                    Information
+                                </button>
                             </th>
-                            </form>
+                        </form>
 
-                        {% endif %}
+                    {% endif %}
 
                 </tr>
             {% endfor %}
