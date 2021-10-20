@@ -1,5 +1,5 @@
-insert into license_keys(license_key, server_ip, api_key_id) values('LIC-33214', '73.233.53.221', 5);
+insert into license_keys(license_key, server_ip, api_key_id) values('LIC-33214', '73.233.53.221', 1);
 
-insert into api_keys(apikey, users_id) values('api-JJKAUIFNSKJSDKJSDS', 1);
+insert into api_keys(apikey, product_name, user_id) values('api-JJKAUIFNSKJSDKJSDS', 'Uperms', 1);
 
-insert into users(email, username, password, created_at, updated_at) values('aklusa71@gmail.com','aklusa02','Password', now(), now());
+insert into users(first_name, last_name, email, username, password, created_at, updated_at) values('Alex', 'Klusa', 'aklusa71@gmail.com','aklusa02','Password', now(), now());
