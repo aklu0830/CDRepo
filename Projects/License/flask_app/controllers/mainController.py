@@ -6,7 +6,7 @@ from flask_app.models import user
 @app.route("/")
 def mainPage():
 
-    if 'logged_in' in session:
+    if len(session)==0:
         return "Welcome"
     else:
         session['logged_in'] = False
@@ -23,6 +23,8 @@ def register():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+@app.route("/")
 
 
 @app.errorhandler(404)
