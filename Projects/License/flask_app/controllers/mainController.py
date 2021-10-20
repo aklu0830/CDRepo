@@ -13,8 +13,7 @@ def mainPage():
         session['user_id'] = ""
         session['license_id'] = ""
         session['api_id'] = ""
-
-    return "Main Page"
+    return render_template("homepage.html")
 
 @app.route("/register")
 def register():
