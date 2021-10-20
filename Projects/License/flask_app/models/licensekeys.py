@@ -16,7 +16,7 @@ dbname = 'licenses'
 
 
 # model the class after the friend table from our database
-class Api_Keys:
+class License_Keys:
     def __init__(self, data):
         self.id = data['id']
         self.license_key = data['license_key']

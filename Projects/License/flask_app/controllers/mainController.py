@@ -1,6 +1,6 @@
 from flask import render_template, session, request, redirect, flash
 from flask_app import app
-from flask_app.models import user, apikeys
+from flask_app.models import user, apikeys, licensekeys
 
 
 @app.route("/")
@@ -13,6 +13,7 @@ def mainPage():
         session['license_id'] = ""
         session['api_id'] = ""
         session['viewingLicenses'] = False
+
         return render_template("homepage.html")
 
 
@@ -38,6 +39,7 @@ def login():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
+    session.clear()
     return redirect("/")
 
 
@@ -62,19 +64,24 @@ def dashboard():
     else:
         return render_template("dashboard.html", apilist=apilist)
 
-@app.route("/toggleviewlicense")
+@app.route("/toggleviewlicense", methods=['POST','GET'])
 def viewlicense():
     if not session['viewingLicenses']:
         session['viewingLicenses'] = True
+        session['api_id'] = request.form['apikey_id']
+
         return redirect("/licensekeys")
     else:
         session['viewingLicenses'] = False
+        session['api_id'] = ""
         return redirect("/dashboard")
 
 @app.route("/licensekeys")
 def showkeys():
-
-    return render_template("licenses.html")
+    data = {"apikey_id": session['api_id']}
+    lic = licensekeys.License_Keys.get_all(data)
+    product_name = apikeys.Api_Keys.getapikey(data)
+    return render_template("licenses.html", lic=lic, product_name=product_name)
 
 @app.route("/makeproduct")
 def makeproduct():

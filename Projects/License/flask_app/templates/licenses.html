@@ -26,7 +26,7 @@
     </div>
 
     <div class="main">
-        <h1 class="corrections">product_name License Keys</h1>
+        <h2 class="corrections">{{ product_name.product_name }}<br>License Keys</h2>
         <table class="table table-corrections">
             <thead class="">
             <tr>
@@ -36,18 +36,25 @@
             </tr>
             </thead>
             <tbody>
+
+            {% for ekey in lic %}
                 <tr>
-                    <th><pre><code>LIC-KeyNumber</code></pre></th>
                     <th>
-                        <pre><code>27.233.423.123</code></pre>
+                        <pre><code>{{ ekey.license_key }}</code></pre>
+                    </th>
+                    <th>
+                        <pre><code>{{ ekey.server_ip }}</code></pre>
                     </th>
                     <th>
                         <div class="actions">
-                            <button class="btn btn-danger">Revoke License</button>
-                        </div>
+                            <form>
+                                <button class="btn btn-danger small">Revoke License</button>
+                            </form>
 
+                        </div>
                     </th>
                 </tr>
+            {% endfor %}
 
 
             </tbody>

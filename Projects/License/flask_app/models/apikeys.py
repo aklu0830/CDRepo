@@ -57,7 +57,7 @@ class Api_Keys:
 
     @classmethod
     def getapikey(cls, data):
-        query = "select * from users where id=%(email)s;"
+        query = "select * from api_keys where id=%(apikey_id)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 

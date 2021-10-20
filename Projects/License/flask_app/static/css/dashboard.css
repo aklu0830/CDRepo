@@ -81,6 +81,16 @@ pre {
     width: 350px;
 }
 
+.actions {
+    height: 10px;
+
+}
+
+.small {
+    width: 110px;
+    font-size: 13px;
+}
+
 
 
 
