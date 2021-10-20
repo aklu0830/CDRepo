@@ -14,24 +14,35 @@
 
     <div class="main form-group">
         <h1 class="head-title text-">Registration</h1>
-        <form class="form-control">
-            <label class="form-inputs text-muted">First Name</label>
-            <input class="form-control" type="text">
-            <label class="form-inputs text-muted">Last Name</label>
-            <input class="form-control" type="text">
-            <label class="form-inputs text-muted">Email</label>
-            <input class="form-control" type="text">
-            <label class="form-inputs text-muted">Password</label>
-            <input class="form-control" type="text">
-            <label class="form-inputs text-muted">Confirm Password</label>
-            <input class="form-control" type="text">
-            <button class="btn btn-primary ">Create Account</button>
 
+        <form class="form-control">
+            {% with messages = get_flashed_messages(category_filter=["reg"]) %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <p class="alert alert-danger alm">{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <label class="form-inputs text-muted">First Name</label>
+            <input class="form-control" type="text" name="first_name">
+            <label class="form-inputs text-muted">Last Name</label>
+            <input class="form-control" type="text" name="last_name">
+            <label class="form-inputs text-muted">Email</label>
+            <input class="form-control" type="text" name="email">
+            <label class="form-inputs text-muted">Username</label>
+            <input class="form-control" type="text" name="username">
+            <label class="form-inputs text-muted">Password</label>
+            <input class="form-control" type="password" name="password">
+            <label class="form-inputs text-muted">Confirm Password</label>
+            <input class="form-control" type="password" name="confirm-password">
+            <button class="btn btn-primary" formmethod="post" formaction="/makeuser">Create Account</button>
         </form>
 
 
-        <h6 class="text-muted head-title  trademark-footer">@ 2020 - 2021</h6>
-        <h6 class="text-muted head-title"> Hyperlink Consulting LLC</h6>
+        <h6 class="text-muted head-title trademark-footer">@ 2020 - 2021</h6>
+        <h6 class="text-muted head-title"> Hyperlink Holdings LLC</h6>
     </div>
 
 

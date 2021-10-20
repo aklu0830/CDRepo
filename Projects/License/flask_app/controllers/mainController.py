@@ -19,6 +19,16 @@ def mainPage():
 def register():
     return render_template("registration.html")
 
+@app.route("/makeuser", methods=['POST','GET'])
+def mkuser():
+    data = {"first_name": request.form['first_name'], "last_name": request.form['last_name'], "email": request.form['email'], "username": request.form['username'], "password": request.form['password'], "confirm-password": request.form['confirm-password']}
+    if not user.User.regvalidate(data):
+        return redirect("register")
+    else:
+        user.User.createusr(data)
+        return redirect("login")
+
+
 
 @app.route("/login")
 def login():

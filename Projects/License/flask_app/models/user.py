@@ -19,9 +19,10 @@ dbname = 'licenses'
 class User:
     def __init__(self, data):
         self.id = data['id']
+        self.first_name = data['first_name']
+        self.last_name = data['last_name']
         self.email = data['email']
-        self.usernamed = data['first_name']
-        self.password = data['last_name']
+        self.username = data['username']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
@@ -43,7 +44,7 @@ class User:
     def createusr(self, data):
         pswhash = bcrypt.generate_password_hash(data['password'])
 
-        query = f'insert into users(first_name, last_name, email, password, created_at, updated_at) values(%(first_name)s,%(last_name)s,%(email)s, "{pswhash}", now(), now());'
+        query = f'insert into users(first_name, last_name, email, username, password, created_at, updated_at) values(%(first_name)s,%(last_name)s,%(email)s, %(username)s, "{pswhash}", now(), now());'
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -86,6 +87,14 @@ class User:
         return emailExists
 
     @classmethod
+    def userexists(cls, data):
+        query = "select username from users where username=%(username)s;"
+
+        send = connectToMySQL(dbname).query_db(query, data)
+        print(send)
+        return send
+
+    @classmethod
     def savechanges(self, data):
         query = "update users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at=now() where id=%(userid)s"
 
@@ -107,8 +116,6 @@ class User:
             session['first_name'] = send[0]['first_name']
             session['user_id'] = send[0]['id']
 
-
-
         return isApproved
 
     @staticmethod
@@ -117,6 +124,10 @@ class User:
         if len(User.checkemail(data)) > 0:
             flash(u"Email Already Exists", 'reg')
             print("Email Exists")
+            is_valid = False
+        if len(User.userexists(data)) > 0:
+            flash(u"Username Exists", 'reg')
+            print("Username Exists")
             is_valid = False
         if len(data['first_name']) < 3:
             flash(u"Name is too short", 'reg')
