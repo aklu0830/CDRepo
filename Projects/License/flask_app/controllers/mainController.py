@@ -23,7 +23,12 @@ def register():
 def login():
     return render_template("login.html")
 
-@app.route("/")
+@app.route("/dashboard")
+def dashboard():
+    if not session['logged_in']:
+        return render_template("login.html")
+    else:
+        return render_template("")
 
 
 @app.errorhandler(404)
