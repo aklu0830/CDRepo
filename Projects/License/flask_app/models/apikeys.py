@@ -39,9 +39,7 @@ class Api_Keys:
 
     @classmethod
     def createapikey(self, data):
-        pswhash = bcrypt.generate_password_hash(data['password'])
-
-        query = f'insert into users(first_name, last_name, email, password, created_at, updated_at) values(%(first_name)s,%(last_name)s,%(email)s, "{pswhash}", now(), now());'
+        query = f'insert into api_keys(apikey, product_name, user_id) values(%(apikey)s, %(product_name)s, %(user_id)s);'
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -49,7 +47,7 @@ class Api_Keys:
 
     @classmethod
     def dropapikey(self, data):
-        query = "delete from users where id=%(id)s;"
+        query = "delete from api_keys where id=%(id)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -62,3 +60,14 @@ class Api_Keys:
         send = connectToMySQL(dbname).query_db(query, data)
 
         return send[0]
+
+
+    @staticmethod
+    def validatecreation(data):
+        is_valid = True
+        if len(data['product_name']) < 3:
+            flash(u"Product name must be atleast 3 characters", "makeproduct")
+            is_valid = False
+
+
+        return is_valid
