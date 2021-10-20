@@ -41,7 +41,7 @@ class License_Keys:
     def createlicensekey(self, data):
         pswhash = bcrypt.generate_password_hash(data['password'])
 
-        query = f'insert into users(first_name, last_name, email, password, created_at, updated_at) values(%(first_name)s,%(last_name)s,%(email)s, "{pswhash}", now(), now());'
+        query = f'insert into license_key(license_key, server_ip, api_key_id) values(%(first_name)s,%(last_name)s,%(email)s, "{pswhash}", now(), now());'
 
         send = connectToMySQL(dbname).query_db(query, data)
 

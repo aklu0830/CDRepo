@@ -11,6 +11,7 @@ def mainPage():
     session['license_id'] = ""
     session['api_id'] = ""
     session['viewingLicenses'] = False
+    
 
     return render_template("homepage.html")
 
@@ -59,6 +60,7 @@ def processlogin():
 
 @app.route("/dashboard")
 def dashboard():
+    session['api_id'] = ""
     apilist = apikeys.Api_Keys.get_all()
     if not session['logged_in']:
         return redirect("/login")
@@ -95,7 +97,7 @@ def makeproduct():
         return render_template("createproduct.html")
 
 
-@app.route("/createproduct")
+@app.route("/createproduct", methods=['GET', 'POST'])
 def createproduct():
     makeapikey = randint(400000, 2000000)
     data = {"product_name": request.form['product_name'], "apikey": f"api-{makeapikey}", "user_id": session['user_id']}

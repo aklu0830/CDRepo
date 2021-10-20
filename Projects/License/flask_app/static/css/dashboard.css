@@ -65,6 +65,7 @@ body {
 
 .btn {
     margin-left: 10px;
+    color: white;
 }
 
 pre {
@@ -89,6 +90,10 @@ pre {
 .small {
     width: 110px;
     font-size: 13px;
+}
+
+.makeapikey {
+    margin-left: 80%;
 }
 
 
