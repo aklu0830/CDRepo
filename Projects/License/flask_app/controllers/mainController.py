@@ -1,6 +1,6 @@
 from flask import render_template, session, request, redirect, flash
 from flask_app import app
-from flask_app.models import user
+from flask_app.models import user, apikeys
 
 
 @app.route("/")
@@ -9,7 +9,7 @@ def mainPage():
     if len(session)==0:
         return "Welcome"
     else:
-        session['logged_in'] = False
+        session['logged_in'] = True
         session['user_id'] = ""
         session['license_id'] = ""
         session['api_id'] = ""
@@ -25,10 +25,11 @@ def login():
 
 @app.route("/dashboard")
 def dashboard():
+    apilist = apikeys.Api_Keys.get_all()
     if not session['logged_in']:
-        return render_template("login.html")
+        return redirect("/login")
     else:
-        return render_template("")
+        return render_template("dashboard.html", apilist=apilist)
 
 
 @app.errorhandler(404)

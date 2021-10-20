@@ -2,10 +2,11 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-    background-color: #33404d;
     font-family: "Calibri Light";
+}
 
-
+body {
+    background-color: #33404d;
 }
 
 .wholepage {
@@ -16,7 +17,7 @@
     background-color: white;
     margin: 0 auto;
     margin-top: 30px;
-    width: 900px;
+    width: 1200px;
     border-radius: 60px;
     padding: 30px;
 
@@ -32,11 +33,14 @@
 }
 
 .corrections {
-
     background-color: white;
     display: flex;
     justify-content: center;
     border-radius: 30%;
+}
+
+.table-corrections {
+    background-color: white;
 }
 
 .trademark-footer {
@@ -53,12 +57,22 @@
 }
 
 .options {
-    width: 300px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
 
 }
 
 .btn {
     margin-left: 10px;
+}
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
 }
 
 .thelogo {
