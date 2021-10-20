@@ -36,16 +36,16 @@
             </tr>
             </thead>
             <tbody>
-            {% for value in apilist %}
+            {% for avalue in apilist %}
                 <tr>
-                    <th>{{ value.product_name }}</th>
+                    <th>{{ avalue.product_name }}</th>
                     <th>
-                        <pre><code>{{ value.api_key }}</code></pre>
+                        <pre><code>{{ avalue.api_key }}</code></pre>
                     </th>
                     <th>
                         <div class="actions">
                             <button class="btn btn-danger">Delete Product</button>
-                            <button class="btn btn-info">View Licenses</button>
+                            <button class="btn btn-info" value="{{ avalue.id }}" name="apikey_id">View Licenses</button>
                         </div>
 
                     </th>

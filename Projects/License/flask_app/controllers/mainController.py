@@ -12,6 +12,7 @@ def mainPage():
         session['user_id'] = ""
         session['license_id'] = ""
         session['api_id'] = ""
+        session['viewingLicenses'] = False
         return render_template("homepage.html")
 
 
@@ -60,6 +61,20 @@ def dashboard():
         return redirect("/login")
     else:
         return render_template("dashboard.html", apilist=apilist)
+
+@app.route("/toggleviewlicense")
+def viewlicense():
+    if not session['viewingLicenses']:
+        session['viewingLicenses'] = True
+        return redirect("/licensekeys")
+    else:
+        session['viewingLicenses'] = False
+        return redirect("/dashboard")
+
+@app.route("/licensekeys")
+def showkeys():
+
+    return render_template("licenses.html")
 
 @app.route("/makeproduct")
 def makeproduct():
