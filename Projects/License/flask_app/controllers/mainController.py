@@ -36,14 +36,21 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session ['logged_in'] = False
+    session['logged_in'] = False
     return redirect("/")
 
 
 @app.route("/processlogin", methods=['GET', 'POST'])
 def processlogin():
-    session['logged_in'] = True
-    return redirect("/dashboard")
+    data = {"email": request.form['email'], "password": request.form['password']}
+    if not user.User.loginvalidate(data):
+        return redirect("/login")
+    elif not user.User.login(data):
+        flash(u"Login has failed", 'login')
+        return redirect("/login")
+    else:
+        session['logged_in'] = True
+        return redirect("dashboard")
 
 
 @app.route("/dashboard")

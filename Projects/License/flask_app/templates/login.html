@@ -15,10 +15,20 @@
     <div class="main form-group">
         <h1 class="head-title text-">Login</h1>
         <form class="form-control">
+
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <p class="alert alert-danger alm">{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
             <label class="form-inputs text-muted">Email</label>
             <input class="form-control" type="text" name="email">
             <label class="form-inputs text-muted">Password</label>
-            <input class="form-control" type="text" name="password">
+            <input class="form-control" type="password" name="password">
             <button class="btn btn-primary" formmethod="post" formaction="/processlogin">Login</button>
         </form>
 

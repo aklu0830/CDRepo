@@ -107,7 +107,7 @@ class User:
 
         isApproved = False
 
-        query = "select id, first_name, email, password from users where email=%(email)s;"
+        query = "select id, first_name, email, username, password from users where email=%(email)s;"
         send = connectToMySQL(dbname).query_db(query, data)
         ehash = send[0]['password']
         isApproved = bcrypt.check_password_hash((ehash[2:len(ehash) - 1]), data['password'])

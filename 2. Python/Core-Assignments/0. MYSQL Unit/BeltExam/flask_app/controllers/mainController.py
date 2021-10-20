@@ -56,7 +56,7 @@ def logout():
     return redirect('/')
 
 
-@app.route("/paintings")
+@app.route("/z")
 def paintings():
     data = join.Join.get_all()
     session['editing'] = False
