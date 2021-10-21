@@ -11,7 +11,6 @@ def mainPage():
     session['license_id'] = ""
     session['api_id'] = ""
     session['viewingLicenses'] = False
-    
 
     return render_template("homepage.html")
 
@@ -83,10 +82,14 @@ def viewlicense():
 
 @app.route("/licensekeys")
 def showkeys():
-    data = {"apikey_id": session['api_id']}
-    lic = licensekeys.License_Keys.get_all(data)
-    product_name = apikeys.Api_Keys.getapikey(data)
-    return render_template("licenses.html", lic=lic, product_name=product_name)
+    if not session['viewingLicenses']:
+        return render_template("404.html")
+    else:
+
+        data = {"apikey_id": session['api_id']}
+        lic = licensekeys.License_Keys.get_all(data)
+        product_name = apikeys.Api_Keys.getapikey(data)
+        return render_template("licenses.html", lic=lic, product_name=product_name)
 
 
 @app.route("/makeproduct")
@@ -99,7 +102,7 @@ def makeproduct():
 
 @app.route("/createproduct", methods=['GET', 'POST'])
 def createproduct():
-    makeapikey = randint(400000, 2000000)
+    makeapikey = randint(100000000, 999999999)
     data = {"product_name": request.form['product_name'], "apikey": f"api-{makeapikey}", "user_id": session['user_id']}
 
     if not apikeys.Api_Keys.validatecreation(data):
@@ -107,6 +110,19 @@ def createproduct():
     else:
         apikeys.Api_Keys.createapikey(data)
         return redirect("/dashboard")
+
+
+@app.route("/makelicense")
+def makelicense():
+    makelicensekey = randint(100000000, 999999999)
+    data = {"license_key": f"LIC-{makelicensekey}", "server_ip": request.form['server_ip'], "apikey_id": session['api_id']}
+
+    return render_template("/createlicense.html")
+
+
+@app.route("/createlicense")
+def createlicense():
+    return
 
 
 @app.errorhandler(404)

@@ -41,7 +41,7 @@ class License_Keys:
     def createlicensekey(self, data):
         pswhash = bcrypt.generate_password_hash(data['password'])
 
-        query = f'insert into license_key(license_key, server_ip, api_key_id) values(%(first_name)s,%(last_name)s,%(email)s, "{pswhash}", now(), now());'
+        query = f'insert into license_keys(license_key, server_ip, api_key_id) values(%(license_key)s, %(server_ip)s, %(apikey_id)s);'
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -49,7 +49,7 @@ class License_Keys:
 
     @classmethod
     def droplicensekey(self, data):
-        query = "delete from users where id=%(id)s;"
+        query = "delete from license_keys where id=%(id)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -57,7 +57,7 @@ class License_Keys:
 
     @classmethod
     def getlicensekey(cls, data):
-        query = "select * from users where id=%(email)s;"
+        query = "select * from license_keys where api_key_id=%(apikey_id)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 
