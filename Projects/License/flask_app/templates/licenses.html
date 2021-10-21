@@ -27,7 +27,10 @@
 
     <div class="main">
         <h2 class="corrections">{{ product_name.product_name }}<br>License Keys</h2>
-    <button class="btn btn-success" value="{{ product_name['id'] }}">Create License</button>
+        <form>
+            <button class="btn btn-success" value="{{ product_name['id'] }}" formaction="/makelicense">Create License</button>
+        </form>
+
         <table class="table table-corrections">
             <thead class="">
             <tr>

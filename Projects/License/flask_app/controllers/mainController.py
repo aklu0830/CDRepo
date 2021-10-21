@@ -11,6 +11,7 @@ def mainPage():
     session['license_id'] = ""
     session['api_id'] = ""
     session['viewingLicenses'] = False
+    session['revokeProcess'] = False
 
     return render_template("homepage.html")
 
@@ -61,6 +62,7 @@ def processlogin():
 def dashboard():
     session['api_id'] = ""
     apilist = apikeys.Api_Keys.get_all()
+    session['viewingLicenses'] = False
     if not session['logged_in']:
         return redirect("/login")
     else:
@@ -112,16 +114,30 @@ def createproduct():
         return redirect("/dashboard")
 
 
+@app.route("/deleteproduct", methods=['GET', 'POST'])
+def deleteproduct():
+    data = {'api_key': request.form['apikey_id_del']}
+    apikeys.Api_Keys.dropapikey(data)
+    return redirect("/dashboard")
+
+
 @app.route("/makelicense")
 def makelicense():
-    makelicensekey = randint(100000000, 999999999)
-    data = {"license_key": f"LIC-{makelicensekey}", "server_ip": request.form['server_ip'], "apikey_id": session['api_id']}
-
-    return render_template("/createlicense.html")
+    return render_template("createlicense.html")
 
 
-@app.route("/createlicense")
+@app.route("/createlicense", methods=['GET', 'POST'])
 def createlicense():
+    makelicensekey = randint(100000000, 999999999)
+    data = {"license_key": f"LIC-{makelicensekey}", "server_ip": request.form['server_ip'],
+            "apikey_id": session['api_id']}
+    licensekeys.License_Keys.createlicensekey(data)
+
+    return redirect("/licensekeys")
+
+
+@app.route("/revokelicense")
+def revoke():
     return
 
 

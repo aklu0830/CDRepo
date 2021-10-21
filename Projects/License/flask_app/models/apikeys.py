@@ -47,11 +47,13 @@ class Api_Keys:
 
     @classmethod
     def dropapikey(self, data):
-        query = "delete from api_keys where id=%(id)s;"
+        queryone = "delete from api_keys where api_key_id=%(id)s;"
+        querytwo = "delete from api_keys where id=%(id)s;"
 
-        send = connectToMySQL(dbname).query_db(query, data)
+        sendone = connectToMySQL(dbname).query_db(queryone, data)
+        sendtwo = connectToMySQL(dbname).query_db(querytwo, data)
 
-        return
+        return sendone, sendtwo
 
     @classmethod
     def getapikey(cls, data):
@@ -71,3 +73,4 @@ class Api_Keys:
 
 
         return is_valid
+

@@ -39,7 +39,6 @@ class License_Keys:
 
     @classmethod
     def createlicensekey(self, data):
-        pswhash = bcrypt.generate_password_hash(data['password'])
 
         query = f'insert into license_keys(license_key, server_ip, api_key_id) values(%(license_key)s, %(server_ip)s, %(apikey_id)s);'
 
