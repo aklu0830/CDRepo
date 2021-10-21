@@ -48,7 +48,7 @@ class License_Keys:
 
     @classmethod
     def droplicensekey(self, data):
-        query = "delete from license_keys where id=%(id)s;"
+        query = "delete from license_keys where license_key=%(license_key)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 

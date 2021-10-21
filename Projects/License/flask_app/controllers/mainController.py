@@ -140,10 +140,11 @@ def createlicense():
     return redirect("/licensekeys")
 
 
-@app.route("/revokelicense")
+@app.route("/revokelicense", methods=['GET', 'POST'])
 def revoke():
-    data = {"license-key": request.form['license-key']}
-    return
+    data = {"license_key": request.form['license_key']}
+    licensekeys.License_Keys.droplicensekey(data)
+    return redirect("/licensekeys")
 
 
 @app.errorhandler(404)

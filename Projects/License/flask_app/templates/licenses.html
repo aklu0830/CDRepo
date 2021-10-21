@@ -52,7 +52,7 @@
                     <th>
                         <div class="actions">
                             <form>
-                                <button class="btn btn-danger small">Revoke License</button>
+                                <button class="btn btn-danger small" formmethod="post" formaction="/revokelicense" value="{{ ekey.license_key }}" name="license_key">Revoke License</button>
                             </form>
 
                         </div>
