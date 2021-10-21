@@ -20,7 +20,7 @@ class License_Keys:
     def __init__(self, data):
         self.id = data['id']
         self.license_key = data['license_key']
-        self.server_ip= data['server_ip']
+        self.server_ip = data['server_ip']
         self.api_key_id = data['api_key_id']
 
     # Now we use class methods to query our database
