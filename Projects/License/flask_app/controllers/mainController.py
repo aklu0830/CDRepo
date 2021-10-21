@@ -61,7 +61,8 @@ def processlogin():
 @app.route("/dashboard")
 def dashboard():
     session['api_id'] = ""
-    apilist = apikeys.Api_Keys.get_all()
+    data = {"user_id": session['user_id']}
+    apilist = apikeys.Api_Keys.get_all(data)
     session['viewingLicenses'] = False
     if not session['logged_in']:
         return redirect("/login")
@@ -123,7 +124,10 @@ def deleteproduct():
 
 @app.route("/makelicense")
 def makelicense():
-    return render_template("createlicense.html")
+    if not session['logged_in']:
+        return redirect("/")
+    else:
+        return render_template("createlicense.html")
 
 
 @app.route("/createlicense", methods=['GET', 'POST'])
@@ -138,6 +142,7 @@ def createlicense():
 
 @app.route("/revokelicense")
 def revoke():
+    data = {"license-key": request.form['license-key']}
     return
 
 

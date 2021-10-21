@@ -55,6 +55,14 @@ class License_Keys:
         return
 
     @classmethod
+    def droplicensekeybulk(self, data):
+        query = "delete from license_keys where api_key_id=%(api_key)s;"
+
+        send = connectToMySQL(dbname).query_db(query, data)
+
+        return
+
+    @classmethod
     def getlicensekey(cls, data):
         query = "select * from license_keys where api_key_id=%(apikey_id)s;"
 

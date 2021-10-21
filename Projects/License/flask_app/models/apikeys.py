@@ -8,6 +8,8 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 import re
 
+from flask_app.models import licensekeys
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 bcrypt = Bcrypt(app)
@@ -25,10 +27,10 @@ class Api_Keys:
 
     # Now we use class methods to query our database
     @classmethod
-    def get_all(cls):
-        query = "select * from api_keys;"
+    def get_all(cls, data):
+        query = "select * from api_keys where user_id=%(user_id)s;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL(dbname).query_db(query)
+        results = connectToMySQL(dbname).query_db(query, data)
         # Create an empty list to append our instances of friends
         apikey_list = []
         # Iterate over the db results and create instances of friends with cls.
@@ -47,16 +49,16 @@ class Api_Keys:
 
     @classmethod
     def dropapikey(self, data):
-        queryone = "delete from api_keys where api_key_id=%(id)s;"
-        querytwo = "delete from api_keys where id=%(id)s;"
+        licensekeys.License_Keys.droplicensekeybulk(data)
+        query = "delete from api_keys where id=%(api_key)s;"
 
-        sendone = connectToMySQL(dbname).query_db(queryone, data)
-        sendtwo = connectToMySQL(dbname).query_db(querytwo, data)
+        send = connectToMySQL(dbname).query_db(query, data)
 
-        return sendone, sendtwo
+        return send
 
     @classmethod
     def getapikey(cls, data):
+
         query = "select * from api_keys where id=%(apikey_id)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
