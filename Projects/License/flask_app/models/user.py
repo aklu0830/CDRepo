@@ -8,7 +8,21 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 import re
 
+from flask_mail import Mail, Message
+
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+
+
+app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'apikey'
+app.config['MAIL_PASSWORD'] = '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'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
+mail = Mail(app)
 
 bcrypt = Bcrypt(app)
 
@@ -115,8 +129,21 @@ class User:
         if isApproved == True:
             session['first_name'] = send[0]['first_name']
             session['user_id'] = send[0]['id']
+            User.sendemail()
 
         return isApproved
+
+
+
+
+
+    def get_reset_token(self, expires_sec=1800):
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        return s.dumps({'user_id': self.id}).decode('utf-8')
+
+
+    @staticmethod
+
 
     @staticmethod
     def regvalidate(data):
@@ -151,3 +178,10 @@ class User:
             is_valid = False
 
         return is_valid
+
+    @staticmethod
+    def sendemail(data):
+        msg = Message(data['message'], sender="no-reply@hyperlink-network.com", recipients=[data['email']])
+        msg.body = "The email bbbody"
+        mail.send(msg)
+        return "Sent"
