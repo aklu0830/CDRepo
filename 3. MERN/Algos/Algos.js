@@ -17,3 +17,28 @@ bubblesort([6,4,5,2,9,3,8]) //output: [2,3,4,5,6,8,9]
 // Bubble Sort End
 
 
+
+
+//Selection Sort Start
+function selectionsort(arr){
+    var temp;
+    for(var i = 0; i < arr.length; i++){
+        for (var j = 0; j < arr.length; j++ ){
+            if (arr[i] < arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j]
+                arr[j] = temp;
+            }
+        }
+    }
+    console.log(arr)
+
+}
+
+
+selectionsort([6,4,5,2,9,3,8])
+//Selection Sort Send
+
+
+
+
