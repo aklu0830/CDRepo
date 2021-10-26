@@ -11,9 +11,7 @@ class Ninja {
     }
 
     showStats = () => {
-        console.log(this.health)
-        console.log(this.speed)
-        console.log(this.strength)
+        console.log(`"Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}"`)
     }
 
     drinkSake = () => {
@@ -40,3 +38,4 @@ class Sensei extends Ninja{
 
 const sensei = new Sensei();
 sensei.speakWidsom()
+sensei.showStats()
