@@ -18,7 +18,9 @@ class Dirsss extends Component {
     render() {
         return (
             <fieldset>
-                <p>The light is currently { this.state.age}</p>
+                <h1>{this.props.lname}, {this.props.fname}</h1>
+                <h6>Age: { this.state.age}</h6>
+                <h6>Hair Color: {this.state.hclr}</h6>
                 <button onClick={this.incAge} className={"btn btn-primary"}>Flip Switch</button>
             </fieldset>
         );
