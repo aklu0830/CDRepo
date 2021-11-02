@@ -1,14 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HookForm from "./components/HookForm";
-import MoreForms from "./components/HookForm";
+import UserForm from "./components/UserForm";
 
 function App() {
-  return (
-    <div className="App labelss">
-        <MoreForms></MoreForms>
-    </div>
-  );
+    return (
+        <div className={"App"}>
+            <UserForm></UserForm>
+        </div>
+    );
 }
 
 export default App;
