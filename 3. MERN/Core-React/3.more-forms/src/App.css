@@ -37,10 +37,9 @@
   }
 }
 
-form {
-  width: 30%;
+.labelss {
   margin: 0 auto;
-  margin-top: 10px;
+  color: blue;
+  width: 400px;
+
 }
-
-
