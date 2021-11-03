@@ -3,26 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './boxColors.css'
 
 const BoxForm = (props) => {
-    const [task, setTask] = useState({
-        nameOfTask: "",
+    const [color, setColor] = useState({
+        nameOfColo: "",
         isComplete: false
         }
     );
 
-    const [listOfTasks, setListOfTasks] = useState([]);
+    const [listOfColors, setListOfColors] = useState([]);
 
     const changeHandler = (e) => {
         console.log("");
-        setTask({
-            ...task,
-            nameOfTask: e.target.value
+        setColor({
+            ...color,
+            nameOfColor: e.target.value
 
         })
     }
 
     const submit = (e) => {
         e.preventDefault();
-        setListOfTasks([...listOfTasks, task])
+        setListOfColors([...listOfColors, color])
     }
 
     return (
@@ -33,8 +33,8 @@ const BoxForm = (props) => {
                 <input type="submit" value="Add Color" className="btn btn-primary" onClick={submit}/>
                 <ul>
                     <div className="boxes">
-                        {listOfTasks.map((tasks, tn) =>
-                            <div className="box" style={{backgroundColor: tasks.nameOfTask} }></div>
+                        {listOfColors.map((boxes, tn) =>
+                            <div className="box" style={{backgroundColor: boxes.nameOfColor} }></div>
 
                         )}
                     </div>
