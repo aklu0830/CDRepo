@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Tasks = () => {
     const [tasks, setTasks] = useState({
-        nameOfTask: ""
+        nameOfTask: "",
+        isComplete: false
     })
 
     const [listOfTasks, setListOfTasks] = useState([]);
@@ -12,9 +13,16 @@ const Tasks = () => {
     const handleChange = (e) => {
         setTasks({
             ...tasks,
-            nameOfTask: e.target.value
+            nameOfTask: e.target.value,
+            isComplete: false
         });
     }
+
+    const changeStuff = (e, index) => {
+        setListOfTasks([...listOfTasks.slice(0, index), {...listOfTasks[index], isComplete: e.target.checked}, ...listOfTasks.slice(index+1) ]);
+
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,17 +36,13 @@ const Tasks = () => {
                 <input type="text" id="input-sect" onChange={handleChange}/>
                 <input type="submit" className="btn btn-primary" value="Add Task" onClick={handleSubmit}/>
             </div>
-            <div>
-                {listOfTasks.map((item, idnum) =>
-                    <div>
-                        <li id={idnum}>{item.nameOfTask}</li>
 
-                    </div>)}
-            </div>
-
-
+            {listOfTasks.map((item, idnum) =>
+                <div>
+                    <b style={item.isComplete ? {textDecoration: "line-through"}: {textDecoration: "none"}} id={idnum}>{item.nameOfTask}</b>
+                    <input className="btn" type="checkbox" checked={item.isComplete} onChange={(e) => changeStuff(e,idnum)}/>
+                </div>)}
         </div>
-
     )
 }
 
