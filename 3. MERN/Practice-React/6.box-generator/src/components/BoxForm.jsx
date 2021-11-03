@@ -23,13 +23,14 @@ const BoxForm = (props) => {
     const submit = (e) => {
         e.preventDefault();
         setListOfColors([...listOfColors, color])
+        document.getElementById("doc").value = ""
     }
 
     return (
         <div>
             <form>
                 <h4>Add a color below</h4>
-                <input type="text" onChange={changeHandler}/>
+                <input type="text" id="doc" onChange={changeHandler}/>
                 <input type="submit" value="Add Color" className="btn btn-primary" onClick={submit}/>
                 <ul>
                     <div className="boxes">
