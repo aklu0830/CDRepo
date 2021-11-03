@@ -4,7 +4,7 @@ import './boxColors.css'
 
 const BoxForm = (props) => {
     const [color, setColor] = useState({
-        nameOfColo: "",
+        nameOfColor: "",
         isComplete: false
         }
     );
