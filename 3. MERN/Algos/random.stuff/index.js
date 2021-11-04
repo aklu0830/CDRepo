@@ -1,10 +1,20 @@
+const [pieceOfState, setPieceOfState] = useState('initial value here');
 
-const nums = [1, 2, 3, 4, 5];
+const Example = (props) => {
+    const [people, setPeople] = useState([]);
 
-function double(num) {
-    return num * 2;
+    useEffect(() => {
+        fetch('https://swapi.dev/api/people/')
+            .then(response => response.json())
+            .then(response => setPeople(response.results))
+    }, []);
+
+    return (
+        <div>
+            {people.length > 0 && people.map((person, index)=>{
+                return (<div key={index}>{person.name}</div>)
+            })}
+        </div>
+    );
 }
-
-const newNums = nums.map( double );
-
-console.log( newNums ); // logs [2, 4, 6, 8, 10]
+export default Example;
