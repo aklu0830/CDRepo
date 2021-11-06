@@ -1,0 +1,13 @@
+.TopBar {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.size {
+    width: 50%;
+}
+
