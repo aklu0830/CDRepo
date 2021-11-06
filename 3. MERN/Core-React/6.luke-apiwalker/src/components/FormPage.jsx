@@ -8,13 +8,14 @@ import {
     Link,
     Switch,
     Route,
-    useParams
+    useParams, Redirect
 } from "react-router-dom";
 import DataOutput from "./DataOutput";
 
 const FormPage = (props) => {
-    const [dataType, setDataType] = useState('');
+    const [dataType, setDataType] = useState('people');
     const [id, setID] = useState('');
+
 
     const Submit = (e) => {
 
@@ -41,15 +42,16 @@ const FormPage = (props) => {
         setID(e.target.value)
     }
 
-    const ass = () => {
-        console.log(dataType + " " + id)
+
+
+    const send = () => {
+        <Redirect to={dataType+"/"+id}></Redirect>
     }
 
 
     return (
 
         <div className="TopBar">
-
             <b>Search For:</b>
             <select onChange={handleChange} className='form-select-sm size'>
                 <option value='people' onChange={handleChange}>People</option>
@@ -58,7 +60,7 @@ const FormPage = (props) => {
             <b>ID: </b>
             <input type='text' onChange={handleChangeNum}/>
             <form>
-                <input type='submit' className='btn btn-primary' formAction={dataType+"/"+id} value='Submit Button'/>
+                <input type='submit' className='btn btn-primary' formAction={"/"+dataType+"/"+id} value='Submit Button'/>
             </form>
 
         </div>

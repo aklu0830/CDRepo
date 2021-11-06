@@ -1,24 +1,29 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
 import axios from "axios";
 import '../DataOutput.css'
 
 
-var dt;
-
 const DataPrint = props => {
     const [data, setData] = useState([]);
-    const {datatype} = useParams();
-    dt = {datatype};
+    var {datatype} = useParams();
     var {id} = useParams();
 
 
     useEffect(() => {
-        fetch('https://swapi.dev/api/'+datatype)
+
+        fetch('https://swapi.dev/api/' + datatype)
             .then(response => response.json())
-            .then(response => setData(response.results))
+            .then(response => {
+                setData(response.results)
+            })
+
 
     }, [])
+
+
+
+
 
 
     if (data.length < 1) {
@@ -26,8 +31,15 @@ const DataPrint = props => {
 
             <div className='dss'>
                 <h1>Loading....</h1>
+                <footer>If this is taking longer than 3 seconds, your input data is invalid</footer>
             </div>
         );
+    } else if (data.length < 1) {
+        return (
+            <div className='dss'>
+                <h1>Unable to display data</h1>
+            </div>
+        )
     } else if (datatype === 'people') {
         return (
 
@@ -54,12 +66,6 @@ const DataPrint = props => {
 
             </div>
         );
-    } else {
-        return (
-            <div className='dss'>
-                <h1>Unable to display data</h1>
-            </div>
-        )
     }
 
 
