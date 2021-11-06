@@ -57,7 +57,7 @@ const DataPrint = props => {
     } else {
         return (
             <div className='dss'>
-                <h1>Empty</h1>
+                <h1>Unable to display data</h1>
             </div>
         )
     }
