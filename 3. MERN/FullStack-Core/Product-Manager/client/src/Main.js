@@ -30,7 +30,7 @@ export default (props) => {
                 <Switch>
                     <Route path='/products/create'>
                         <div>
-                            <CreateProduct/>
+                            <CreateProduct initialFormData={{}}/>
                         </div>
                     </Route>
                     <Route path='/products'>
