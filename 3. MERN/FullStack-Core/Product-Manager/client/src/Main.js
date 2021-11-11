@@ -10,6 +10,7 @@ import {
     useParams
 } from "react-router-dom";
 import ListProducts from "./components/ListProducts";
+import ShowProductInfo from "./components/ShowProductInfo";
 
 
 export default (props) => {
@@ -34,11 +35,8 @@ export default (props) => {
                             <CreateProduct initialFormData={{}}/>
                         </div>
                     </Route>
-                    <Route path='/products/:id'>
-                        <div>
-                            
-                        </div>
-                    </Route>
+                    <Route path='/products/:id' component={ShowProductInfo}/>
+
                     <Route path='/products'>
                         <div>
                             <ListProducts products={products}/>

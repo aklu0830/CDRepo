@@ -9,12 +9,14 @@ const CreateProduct = (props) => {
     const [formInfo, setFormInfo] = useState(initialFormData)
 
     const submitHandler = (e) => {
-        e.preventDefault();
+
         axios.post('http://localhost:8000/api/products/create',
             formInfo
         )
             .then(res=>console.log(res))
+
             .catch(err=>console.log(err))
+
     }
 
     const changeHandler = (e) => {
