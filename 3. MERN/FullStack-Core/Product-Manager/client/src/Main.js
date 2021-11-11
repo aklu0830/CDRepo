@@ -1,5 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
+import CreateProduct from "./components/CreateProduct";
+import {
+    BrowserRouter,
+    Link,
+    Switch,
+    Route,
+    useParams
+} from "react-router-dom";
+import ListProducts from "./components/ListProducts";
 
 
 export default (props) => {
@@ -15,19 +24,24 @@ export default (props) => {
 
 
     }, [])
-    return(
+    return (
         <h2>
-            {products.map((item, index) => {
-                return(
-                    <div>
-                        <h2>Name: {item.title}</h2>
-                        <h6>Price: {item.price}</h6>
-                        <h6>Description: {item.description}</h6>
-                    </div>
+            <BrowserRouter>
+                <Switch>
+                    <Route path='/products/create'>
+                        <div>
+                            <CreateProduct/>
+                        </div>
+                    </Route>
+                    <Route path='/products'>
+                        <div>
+                            <ListProducts products={products}/>
+                        </div>
+                    </Route>
 
-                )
+                </Switch>
 
-            })}
+            </BrowserRouter>
         </h2>
     )
 

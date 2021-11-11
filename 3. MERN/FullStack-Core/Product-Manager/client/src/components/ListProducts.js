@@ -1,6 +1,7 @@
 import React from "react";
+import axios from 'axios';
 
-export default props => {
+const ListProducts = (props) => {
     return (
         <div>
             {props.products.map((product, num) => {
@@ -9,3 +10,5 @@ export default props => {
         </div>
     )
 }
+
+export default ListProducts;
