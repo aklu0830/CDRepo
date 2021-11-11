@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import CreateProduct from "./components/CreateProduct";
@@ -33,7 +34,17 @@ export default (props) => {
                             <CreateProduct initialFormData={{}}/>
                         </div>
                     </Route>
+                    <Route path='/products/:id'>
+                        <div>
+                            
+                        </div>
+                    </Route>
                     <Route path='/products'>
+                        <div>
+                            <ListProducts products={products}/>
+                        </div>
+                    </Route>
+                    <Route path='/'>
                         <div>
                             <ListProducts products={products}/>
                         </div>
