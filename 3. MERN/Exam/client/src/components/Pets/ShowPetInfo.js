@@ -26,7 +26,7 @@ const ShowPetInfo = () => {
     }, [])
 
 
-    if (isLoaded === false) {
+    if (isLoaded === false && data.length < 1) {
         return (
             <h1>Loading....</h1>
         )
@@ -34,7 +34,7 @@ const ShowPetInfo = () => {
         return (
             <div>
                 <h1>Animal Type: {data.petType}</h1>
-                <Link to={'/'} onClick={adoptionHandler}>Adopt</Link>
+                <a className='btn btn-danger' onClick={adoptionHandler}>Adopt</a>
             </div>
 
         )
