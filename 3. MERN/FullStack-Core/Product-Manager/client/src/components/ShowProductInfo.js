@@ -13,7 +13,7 @@ const ShowProductInfo = ({match}) => {
         axios.get(`http://localhost:8000/api/products/${match.params.id}`)
             .then(resp=>setProductInfo(resp.data.product))
 
-    })
+    }, [])
     return(
         <div className='showStuff'>
             <h2 className='showStuff'>Product Name: {productInfo.title}</h2>
