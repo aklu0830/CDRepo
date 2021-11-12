@@ -23,7 +23,8 @@ const ListProducts = (props) => {
                                 <td>{product.title}</td>
                                 <td>{product.price}</td>
                                 <td>{product.description}</td>
-                                <td><button className='btn btn-primary'>View Product Info</button><button className='btn btn-danger'>Delete User</button></td>
+
+                                <td><form><button className='btn btn-primary' formAction={`/products/${product._id}`}>View Product Info</button><button className='btn btn-danger'>Delete User</button></form></td>
                             </tr>
 
                         )

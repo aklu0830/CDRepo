@@ -36,12 +36,6 @@ export default (props) => {
                         </div>
                     </Route>
                     <Route path='/products/:id' component={ShowProductInfo}/>
-
-                    <Route path='/products'>
-                        <div>
-                            <ListProducts products={products}/>
-                        </div>
-                    </Route>
                     <Route path='/'>
                         <div>
                             <ListProducts products={products}/>
