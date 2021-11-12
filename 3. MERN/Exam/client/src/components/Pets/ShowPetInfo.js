@@ -4,6 +4,7 @@ import '../ShowPetInfo.css'
 import {Link, useHistory, useParams} from "react-router-dom";
 
 const ShowPetInfo = () => {
+    const [errors, setErrors] = useState([])
     const {id} = useParams()
     const history = useHistory();
     const [data, setData] = useState([]);

@@ -5,20 +5,29 @@ import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 
+
 const CreateProduct = (props) => {
     const {initialFormData, submitCallBack} = props
     const [formInfo, setFormInfo] = useState(initialFormData)
     const history = useHistory();
 
     const submitHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault()
+
         axios.post('http://localhost:8000/api/pets/create',
             formInfo
         )
-            .then(()=> history.push('/'))
+            .then(response=>{
+                if (response.data.errors) {
+                } else {
+                    history.push('/')
+                }
+            })
+
             .catch(err=>console.log(err))
 
     }
+
 
     const changeHandler = (e) => {
         setFormInfo({

@@ -25,15 +25,15 @@ module.exports.createPet = (req, res) => {
         skillTwo,
         skillThree
     })
-        .then(pettt=>res.json({pettt}))
-        .catch(err=>res.json(err))
+        .then(pet=>res.json(pet))
+        .catch(err=>res.json({errors: err}));
 
 }
 
 module.exports.UpdatePet = (req, res) => {
     Pet.updateOne({_id: req.params.id}, req.body, {new: true})
         .then(results=> res.json({pet: results}))
-        .catch(error=>console.log(error))
+        .catch(error=>res.json({errors: error}))
 
 }
 

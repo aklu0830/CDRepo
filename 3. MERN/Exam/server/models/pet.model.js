@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const PetSchema = new mongoose.Schema({
-    petType: {type: String, minlength:3},
-    petName: {type: String, minlength:3},
-    petDescription: {type: String, minlength:3},
+    petType: {type: String, minlength:3, required: true},
+    petName: {type: String, minlength:3, required:true},
+    petDescription: {type: String, minlength:3, required:true},
     skillOne: {type: String},
     skillTwo: {type: String},
     skillThree: {type: String}
