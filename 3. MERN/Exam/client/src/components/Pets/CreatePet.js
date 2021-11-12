@@ -10,6 +10,12 @@ const CreateProduct = (props) => {
     const {initialFormData, submitCallBack} = props
     const [formInfo, setFormInfo] = useState(initialFormData)
     const history = useHistory();
+    const [formErrors, setFormErrors] = useState({
+        petType:"",
+        petName:"",
+        petDescription:""
+
+    })
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -19,6 +25,8 @@ const CreateProduct = (props) => {
         )
             .then(response=>{
                 if (response.data.errors) {
+                    setFormErrors(response.data.errors.errors)
+                    console.log(response.data.errors)
                 } else {
                     history.push('/')
                 }
