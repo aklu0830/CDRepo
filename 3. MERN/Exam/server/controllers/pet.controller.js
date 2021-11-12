@@ -9,7 +9,7 @@ module.exports.ViewAllPets = (req, res) => {
 
 
 module.exports.ViewOnePet = (req, res) => {
-    Pet.findOne({_id: req.body.id})
+    Pet.findOne({_id: req.params.id})
         .then(results=>res.json({pet: results}))
         .catch(err=>console.log(err))
 
