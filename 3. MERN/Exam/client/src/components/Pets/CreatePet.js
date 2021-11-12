@@ -49,10 +49,13 @@ const CreateProduct = (props) => {
         <form className='form-sizing'>
             <div className='form-group'>
                 <label>Pet Type</label>
+                <p className='text-danger'>{formErrors.petType.message}</p>
                 <input name='petType' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Name</label>
+                <p className='text-danger'>{formErrors.petName.message}</p>
                 <input name='petName' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Description</label>
+                <p className='text-danger'>{formErrors.petDescription.message}</p>
                 <input name='petDescription' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Skill 1</label>
                 <input name='skillOne' onChange={changeHandler} type='text' className='form-control'/>
@@ -61,6 +64,7 @@ const CreateProduct = (props) => {
                 <label>Skill 3</label>
                 <input name='skillThree' onChange={changeHandler} type='text' className='form-control'/>
             </div>
+
             <input type='submit' className='btn btn-success' value='Add Pet' onClick={submitHandler}/>
         </form>
     )

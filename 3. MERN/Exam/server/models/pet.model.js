@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const PetSchema = new mongoose.Schema({
-    petType: {type: String, minlength:3, required: true},
+    petType: {
+        type: String,
+        minlength: [3, 'Must be atleast 3 characters'],
+        required: [true, 'Field is required']
+    },
     petName: {type: String, minlength:3, required:true},
     petDescription: {type: String, minlength:3, required:true},
     skillOne: {type: String},
