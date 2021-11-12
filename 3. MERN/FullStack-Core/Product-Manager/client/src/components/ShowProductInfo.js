@@ -11,7 +11,7 @@ const ShowProductInfo = ({match}) => {
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/products/${match.params.id}`)
-            .then(resp=>setProductInfo(resp.data.message))
+            .then(resp=>setProductInfo(resp.data.product))
 
     })
     return(

@@ -20,12 +20,12 @@ module.exports.createProduct = (req, res) => {
 
 module.exports.getProduct = (req, res) => {
     Product.findOne({_id: req.params.id})
-        .then(results=> res.json({message: results}))
+        .then(results=> res.json({product: results}))
         .catch(error=>console.log(error))
 }
 
 module.exports.updateProduct = (req, res) => {
     Product.updateOne({_id: req.params.id}, req.body, {new: true})
-        .then(results=> res.json({message: results}))
+        .then(results=> res.json({product: results}))
         .catch(error => console.log(error))
 }

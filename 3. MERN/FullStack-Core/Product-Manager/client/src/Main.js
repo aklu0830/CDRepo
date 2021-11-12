@@ -11,10 +11,12 @@ import {
 } from "react-router-dom";
 import ListProducts from "./components/ListProducts";
 import ShowProductInfo from "./components/ShowProductInfo";
+import UpdateProduct from "./components/UpdateProduct";
 
 
 export default (props) => {
     const [products, setProducts] = useState([])
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
@@ -26,10 +28,13 @@ export default (props) => {
 
 
     }, [])
+
     return (
         <h2>
             <BrowserRouter>
                 <Switch>
+                    <Route path='/products/update/:id' component={UpdateProduct}/>
+
                     <Route path='/products/create'>
                         <div>
                             <CreateProduct initialFormData={{}}/>
