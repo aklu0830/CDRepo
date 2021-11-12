@@ -15,7 +15,17 @@ module.exports.ViewOnePet = (req, res) => {
 
 }
 
-module.exports.CreatePet = (req, res) => {
+module.exports.createPet = (req, res) => {
+    const {petType, petName, skillOne, skillTwo, skillThree} = req.body;
+    Pet.create({
+        petType,
+        petName,
+        skillOne,
+        skillTwo,
+        skillThree
+    })
+        .then(pettt=>res.json({pettt}))
+        .catch(err=>res.json(err))
 
 }
 

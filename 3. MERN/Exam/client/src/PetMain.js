@@ -9,42 +9,22 @@ import {
     Route,
     useParams
 } from "react-router-dom";
+import ListPets from "./components/Pets/ListPets";
 
 
 
 export default (props) => {
-    const [pets, setPets] = useState([])
-    const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/pets/')
-            .then(response => {
-                setPets(response.data.pets)
-            })
-            .then(setIsLoaded(true))
-            .catch(err => console.log(err))
-
-
-    }, [])
-
-    if (isLoaded === false) {
-        return (
-            <h2>Page is currently Loading</h2>
-        )
-    } else {
         return (
             <h2>
                 <BrowserRouter>
                     <Switch>
-                        <Route path='/'>
-                            <h2>Tesst</h2>
-                        </Route>
+                        <Route path='/' component={ListPets}/>
 
                     </Switch>
 
                 </BrowserRouter>
             </h2>
         )
-    }
 
 }

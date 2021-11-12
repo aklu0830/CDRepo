@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const PetSchema = new mongoose.Schema({
-    petType: {type: String, required: true},
-    petName: {type: String, required: true},
-    skillone: {type: String, required: true},
-    skilltwo: {type: String, required: true},
-    skillthree: {type: String, required: true}
+    petType: {type: String},
+    petName: {type: String},
+    skillOne: {type: String},
+    skillTwo: {type: String},
+    skillThree: {type: String}
 
 }, {timestamps: true})
 
-const Pet = mongoose.model('pet', PetSchema);
+const Pet = mongoose.model('pets', PetSchema);
 
 module.exports.Pet = Pet;
