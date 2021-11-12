@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import '../ShowPetInfo.css'
 import {Link, useHistory, useParams} from "react-router-dom";
 
 const ShowPetInfo = () => {

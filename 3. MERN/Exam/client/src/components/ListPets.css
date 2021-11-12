@@ -1,8 +1,14 @@
 .table {
+
     width: 1000px;
     margin: 0 auto;
+    margin-top: 70px;
 }
 
 .btn {
     margin-left: 10px;
+}
+
+h1 {
+    color: #61dafb;
 }

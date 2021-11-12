@@ -28,26 +28,30 @@ const ListPets = () => {
     } else {
 
         return (
-            <table className='table table-dark'>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {pets.map((pet, index) => {
-                    return(
-                        <tr>
-                            <td>{pet.petName}</td>
-                            <td>{pet.petType}</td>
-                            <td><Link className='btn btn-primary'>View Information</Link><Link to={`/pets/update/${pet._id}`} className='btn btn-warning'>Edit</Link></td>
-                        </tr>
-                    )
-                })}
-                </tbody>
-            </table>
+            <div>
+                <h1>Pet Shelter</h1>
+                <table className='table table-dark'>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {pets.map((pet, index) => {
+                        return(
+                            <tr>
+                                <td>{pet.petName}</td>
+                                <td>{pet.petType}</td>
+                                <td><Link to={`/pets/info/${pet._id}`} className='btn btn-primary'>View Information</Link><Link to={`/pets/update/${pet._id}`} className='btn btn-warning'>Edit</Link></td>
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+            </div>
+
         )
     }
 
