@@ -33,8 +33,12 @@ const ShowPetInfo = () => {
         )
     } else  {
         return (
+
             <div>
-                <h1>Animal Type: {data.petType}</h1>
+                <div><h1>Pet Shelter</h1></div>
+                <div className='results'><h3>Pet Name:</h3> <p className='test'>{data.petName}</p></div>
+                <div className='results'><h3>Pet Descripion:</h3> <p className='test'>{data.petDescription}</p></div>
+                <div className='results'><h3>Skills:</h3> <a className='test'>{data.skillOne}</a></div>
                 <a className='btn btn-danger' onClick={adoptionHandler}>Adopt</a>
             </div>
 
