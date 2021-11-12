@@ -36,9 +36,9 @@ const ShowPetInfo = () => {
 
             <div>
                 <div><h1>Pet Shelter</h1></div>
-                <div className='results'><h3>Pet Name:</h3> <p className='test'>{data.petName}</p></div>
-                <div className='results'><h3>Pet Descripion:</h3> <p className='test'>{data.petDescription}</p></div>
-                <div className='results'><h3>Skills:</h3> <a className='test'>{data.skillOne}</a></div>
+                <div className='results'><h3>Pet Name:</h3> <a className='test'>{data.petName}</a></div>
+                <div className='results'><h3>Pet Descripion:</h3> <a className='test'>{data.petDescription}</a></div>
+                <div className='results'><h3>Skills:</h3> <a className='test'>{data.skillOne}, {data.skillTwo}, and {data.skillThree}</a></div>
                 <a className='btn btn-danger' onClick={adoptionHandler}>Adopt</a>
             </div>
 

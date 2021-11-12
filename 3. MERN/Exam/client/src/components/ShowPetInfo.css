@@ -2,11 +2,14 @@
     display: flex;
     margin-top: 40px;
     margin-left: 60px;
+    color: #61dafb;
 
 }
 
 .test {
     margin-left: 40px;
+    font-family: EuroRoman;
+    font-size: 30px;
 }
 
 a{
