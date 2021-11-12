@@ -17,13 +17,14 @@ import UpdateProduct from "./components/UpdateProduct";
 export default (props) => {
     const [products, setProducts] = useState([])
     const [product, setProduct] = useState([])
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
             .then(response => {
                 setProducts(response.data.products)
-
             })
+            .then(setIsLoaded(true))
             .catch(err => console.log(err))
 
 
@@ -43,7 +44,7 @@ export default (props) => {
                     <Route path='/products/:id' component={ShowProductInfo}/>
                     <Route path='/'>
                         <div>
-                            <ListProducts products={products}/>
+                            <ListProducts isLoaded={isLoaded} products={products}/>
                         </div>
                     </Route>
 

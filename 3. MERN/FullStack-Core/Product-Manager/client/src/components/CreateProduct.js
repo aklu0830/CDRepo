@@ -2,19 +2,20 @@ import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../Form.css'
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 
 const CreateProduct = (props) => {
     const {initialFormData, submitCallBack} = props
     const [formInfo, setFormInfo] = useState(initialFormData)
+    const history = useHistory();
 
     const submitHandler = (e) => {
-
+        e.preventDefault();
         axios.post('http://localhost:8000/api/products/create',
             formInfo
         )
-            .then(res=>console.log(res))
-
+            .then(()=> history.push('/'))
             .catch(err=>console.log(err))
 
     }
