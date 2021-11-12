@@ -13,6 +13,7 @@ import {
 import ListPets from "./components/Pets/ListPets";
 import CreatePet from "./components/Pets/CreatePet";
 import UpdatePet from "./components/Pets/UpdatePet";
+import ShowPetInfo from "./components/Pets/ShowPetInfo";
 
 
 
@@ -22,6 +23,7 @@ export default (props) => {
             <h2>
                 <BrowserRouter>
                     <Switch>
+                        <Route path='/pets/info/:id' component={ShowPetInfo}/>
                         <Route path='/pets/update/:id' component={UpdatePet}/>
                         <Route path='/pets/create' component={CreatePet}/>
                         <Route path='/' component={ListPets}/>

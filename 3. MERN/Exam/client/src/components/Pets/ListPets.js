@@ -19,6 +19,10 @@ const ListPets = () => {
 
     }, [])
 
+    const removeHandler = () => {
+
+    }
+
     if (isLoaded === false) {
         return (<h3>LOADING</h3>)
     } else {
@@ -38,7 +42,7 @@ const ListPets = () => {
                         <tr>
                             <td>{pet.petName}</td>
                             <td>{pet.petType}</td>
-                            <td><Link className='btn btn-primary'>View Information</Link><Link className='btn btn-warning'>Edit</Link></td>
+                            <td><Link className='btn btn-primary'>View Information</Link><Link to={`/pets/update/${pet._id}`} className='btn btn-warning'>Edit</Link></td>
                         </tr>
                     )
                 })}
