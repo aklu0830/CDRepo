@@ -16,10 +16,11 @@ module.exports.ViewOnePet = (req, res) => {
 }
 
 module.exports.createPet = (req, res) => {
-    const {petType, petName, skillOne, skillTwo, skillThree} = req.body;
+    const {petType, petName, petDescription, skillOne, skillTwo, skillThree} = req.body;
     Pet.create({
         petType,
         petName,
+        petDescription,
         skillOne,
         skillTwo,
         skillThree

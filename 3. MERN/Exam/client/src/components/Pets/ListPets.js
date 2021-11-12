@@ -30,6 +30,7 @@ const ListPets = () => {
         return (
             <div>
                 <h1>Pet Shelter</h1>
+                <Link className='add-pet btn btn-success' to='/pets/create'><h2>Add Pet</h2></Link>
                 <table className='table table-dark'>
                     <thead>
                     <tr>

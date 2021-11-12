@@ -48,6 +48,8 @@ const UpdateProduct = (props) => {
                     <input name='petType' onChange={changeHandler} type='text' className='form-control' value={formInfo.petType}/>
                     <label>Name</label>
                     <input name='petName' onChange={changeHandler} type='text' className='form-control' value={formInfo.petName}/>
+                    <label>Pet Description</label>
+                    <input name='petDescription' onChange={changeHandler} type='text' className='form-control' value={formInfo.petDescription}/>
                     <label>Skill 1</label>
                     <input name='skillOne' onChange={changeHandler} type='text' className='form-control' value={formInfo.skillOne}/>
                     <label>Skill 2</label>

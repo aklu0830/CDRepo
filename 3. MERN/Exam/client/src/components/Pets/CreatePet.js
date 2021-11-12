@@ -35,6 +35,8 @@ const CreateProduct = (props) => {
                 <input name='petType' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Name</label>
                 <input name='petName' onChange={changeHandler} type='text' className='form-control'/>
+                <label>Description</label>
+                <input name='petDescription' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Skill 1</label>
                 <input name='skillOne' onChange={changeHandler} type='text' className='form-control'/>
                 <label>Skill 2</label>
