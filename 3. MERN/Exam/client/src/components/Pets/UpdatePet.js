@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../Form.css'
+import '../CreatePet.css'
 import axios from "axios";
 import {useParams, useHistory} from "react-router-dom";
 
@@ -15,15 +15,15 @@ const UpdateProduct = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:8000/api/products/update/'+id, formInfo)
+        axios.put('http://localhost:8000/api/pets/update/'+id, formInfo)
             .then(()=> history.push('/'))
             .catch(err=>console.log(err))
 
     }
 
     useEffect(()=> {
-        axios.get('http://localhost:8000/api/products/'+id)
-            .then(resp=>setFormInfo(resp.data.product))
+        axios.get('http://localhost:8000/api/pets/info/'+id)
+            .then(resp=>setFormInfo(resp.data.pet))
             .then(() => setLoaded(true))
             .catch(error=>console.log(error))
     }, [])
@@ -44,12 +44,16 @@ const UpdateProduct = (props) => {
         return (
             <form className='form-sizing'>
                 <div className='form-group'>
-                    <label>Title</label>
-                    <input name='title' onChange={changeHandler} type='text' className='form-control' value={formInfo.title}/>
-                    <label>Price</label>
-                    <input name='price' onChange={changeHandler} type='text' className='form-control' value={formInfo.price}/>
-                    <label>Description</label>
-                    <input name='description' onChange={changeHandler} type='text' className='form-control' value={formInfo.description}/>
+                    <label>Pet Type</label>
+                    <input name='petType' onChange={changeHandler} type='text' className='form-control' value={formInfo.petType}/>
+                    <label>Name</label>
+                    <input name='petName' onChange={changeHandler} type='text' className='form-control' value={formInfo.petName}/>
+                    <label>Skill 1</label>
+                    <input name='skillOne' onChange={changeHandler} type='text' className='form-control' value={formInfo.skillOne}/>
+                    <label>Skill 2</label>
+                    <input name='skillTwo' onChange={changeHandler} type='text' className='form-control' value={formInfo.skillTwo}/>
+                    <label>Skill 3</label>
+                    <input name='skillThree' onChange={changeHandler} type='text' className='form-control' value={formInfo.skillThree}/>
                 </div>
                 <input type='submit' className='btn btn-success' value='Update Product' onClick={submitHandler}/>
             </form>

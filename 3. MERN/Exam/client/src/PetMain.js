@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import ListPets from "./components/Pets/ListPets";
 import CreatePet from "./components/Pets/CreatePet";
+import UpdatePet from "./components/Pets/UpdatePet";
 
 
 
@@ -21,8 +22,10 @@ export default (props) => {
             <h2>
                 <BrowserRouter>
                     <Switch>
+                        <Route path='/pets/update/:id' component={UpdatePet}/>
                         <Route path='/pets/create' component={CreatePet}/>
                         <Route path='/' component={ListPets}/>
+
 
                     </Switch>
 
