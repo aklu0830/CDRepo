@@ -23,3 +23,9 @@ module.exports.getProduct = (req, res) => {
         .then(results=> res.json({message: results}))
         .catch(error=>console.log(error))
 }
+
+module.exports.updateProduct = (req, res) => {
+    Product.updateOne({_id: req.params.id}, req.body, {new: true})
+        .then(results=> res.json({message: results}))
+        .catch(error => console.log(error))
+}
