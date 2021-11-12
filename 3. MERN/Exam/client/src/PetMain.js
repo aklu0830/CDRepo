@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React, {useEffect, useState} from "react";
+
 import axios from "axios";
 
 import {
@@ -10,6 +11,7 @@ import {
     useParams
 } from "react-router-dom";
 import ListPets from "./components/Pets/ListPets";
+import CreatePet from "./components/Pets/CreatePet";
 
 
 
@@ -19,6 +21,7 @@ export default (props) => {
             <h2>
                 <BrowserRouter>
                     <Switch>
+                        <Route path='/pets/create' component={CreatePet}/>
                         <Route path='/' component={ListPets}/>
 
                     </Switch>

@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../ListPets.css'
+import {Link} from "react-router-dom";
 
 const ListPets = () => {
     const [pets, setPets] = useState([])
@@ -35,7 +38,7 @@ const ListPets = () => {
                         <tr>
                             <td>{pet.petName}</td>
                             <td>{pet.petType}</td>
-                            <td>TEXT</td>
+                            <td><Link className='btn btn-primary'>View Information</Link><Link className='btn btn-warning'>Edit</Link></td>
                         </tr>
                     )
                 })}
