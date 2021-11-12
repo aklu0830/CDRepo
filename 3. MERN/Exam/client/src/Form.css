@@ -1,0 +1,18 @@
+body {
+ background-color: #282c34;
+}
+
+.form-sizing {
+
+ border: #61dafb;
+ margin: 0 auto;
+ margin-top: 30px;
+ width: 300px;
+ color: #1eb4d5;
+
+
+}
+
+.btn {
+ margin-top: 8px;
+}
