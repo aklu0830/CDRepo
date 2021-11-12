@@ -30,10 +30,15 @@ module.exports.createPet = (req, res) => {
 }
 
 module.exports.UpdatePet = (req, res) => {
+    Pet.updateOne({_id: req.params.id}, req.body, {new: true})
+        .then(results=> res.json({pet: results}))
+        .catch(error=>console.log(error))
 
 }
 
 module.exports.DeletePet = (req, res) => {
+    Pet.deleteOne({_id: req.params.id})
+        .then(results => res.json({results}))
 
 }
 
