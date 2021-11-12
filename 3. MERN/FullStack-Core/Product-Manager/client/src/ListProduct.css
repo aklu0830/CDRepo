@@ -7,10 +7,11 @@ body {
     border: #61dafb;
     margin: 0 auto;
     margin-top: 30px;
-    width: 800px;
+    width: 1000px;
     color: #1eb4d5;
 }
 
 .btn {
     margin-top: 8px;
+    margin-left: 10px;
 }

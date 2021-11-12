@@ -11,6 +11,7 @@ const ListProducts = (props) => {
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Description</th>
+                    <th>Options</th>
                 </tr>
 
                 </thead>
@@ -22,6 +23,7 @@ const ListProducts = (props) => {
                                 <td>{product.title}</td>
                                 <td>{product.price}</td>
                                 <td>{product.description}</td>
+                                <td><button className='btn btn-primary'>View Product Info</button><button className='btn btn-danger'>Delete User</button></td>
                             </tr>
 
                         )
