@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -10,18 +11,21 @@ namespace Program {
         public static void Main(string[] args) {
             Samurai s = new Samurai("Alex", 3, 25, 3);
             Wizard w = new Wizard("Fork", 3, 2);
-            Ninja n = new Ninja("Nin", 3, 25, 150);
-            s.Attack(n);
+
+            
+            s.Meditate();
+
 
         }
 
 
         public class Human {
             public string Name = "Human";
-            public int Strength = 3;
-            public int Intelligence = 15;
-            public int Dexterity = 125;
-            public int health = 140;
+            public int Strength;
+            public int Intelligence;
+            public int Dexterity;
+            public int health;
+            public int maxHp;
 
             public virtual int getHealth {
                 get { return health; }
@@ -33,14 +37,17 @@ namespace Program {
                 Intelligence = 3;
                 Dexterity = 3;
                 health = 100;
+                maxHp = 100;
             }
 
-            public Human(string name, int str, int intel, int dex, int hp) {
+            public Human(string name, int str, int intel, int dex, int hp, int maxHealth) {
                 Name = name;
                 Strength = str;
                 Intelligence = intel;
                 Dexterity = dex;
                 health = hp;
+                maxHp = maxHealth;
+
             }
 
             // Build Attack method
@@ -53,13 +60,12 @@ namespace Program {
         }
 
         public class Wizard : Human {
-            public Wizard(string name, int str, int dex) : base(name, str, intel: 25, dex, hp: 50) {
+            public Wizard(string name, int str, int dex) : base(name, str, intel: 25, dex, hp: 50, maxHealth:50) {
                 Console.WriteLine("Name: " + Name);
-                Console.WriteLine("BF Attack Health" + getHealth(this));
-
-                Console.WriteLine("BF Attack Health" + getHealth(this));
                 Console.WriteLine("");
             }
+            
+            
 
             public override int Attack(Human target) {
                 
@@ -75,13 +81,21 @@ namespace Program {
                 return 1;
             }
 
-            public int getHealth(Human target) {
-                return base.getHealth;
+            public int Heal(Human target) {
+                int healAm = 10 * Intelligence;
+                target.health += healAm;
+                if (target.health >= target.maxHp) {
+                    target.health = target.maxHp;
+                }
+                Console.WriteLine($"Current health of {target.Name}: {target.health}");
+                return target.health;
             }
         }
 
         public class Ninja : Human {
-            public Ninja(string name, int str, int intel, int hp) : base(name, str, intel, dex: 175, hp) {}
+            public Ninja(string name, int str, int intel, int hp, int maxHealth) : base(name, str, intel, dex: 175, hp, maxHealth) {
+                Console.WriteLine("Ninja Health Before Fight: " + hp);
+            }
 
 
             public override int Attack(Human target) {
@@ -115,11 +129,17 @@ namespace Program {
 
                 return target.health;
             }
+
+            public void Steal(Human target) {
+                target.health -= 5;
+                health += 5;
+                
+            }
         }
         
         public class Samurai : Human {
-            public Samurai(string name, int str, int intel, int dex) : base(name, str, intel, dex, hp:200) {
-             Console.Write("My Health: " + health);   
+            public Samurai(string name, int str, int intel, int dex) : base(name, str, intel, dex, hp:150, 200) {
+             
             }
 
             public override int Attack(Human target) {
@@ -132,10 +152,17 @@ namespace Program {
 
                 if (target.health <= 0) {
                     Console.WriteLine($"Samurai {Name} has killed {target.Name}");
-                    Console.WriteLine($"Remaining Health of {target.Name}: {target.health}");
-                    
+                } else {
+                    Console.WriteLine($"Remaining Health of {target.Name}: {target.health}");  
                 }
-                return 1;
+                return target.health;
+            }
+
+            public void Meditate() {
+                int beforeHealHealth = health;
+                health = maxHp;
+                Console.WriteLine($"Samurai {Name}'s health increased from {beforeHealHealth} to {health}");
+
             }
         }
     }
