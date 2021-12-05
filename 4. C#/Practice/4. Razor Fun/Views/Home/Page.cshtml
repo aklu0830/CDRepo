@@ -16,8 +16,10 @@
         string[] SL = {"Apple Pie", "Burritos", "Clams", "Casino"};
 
         foreach (var variable in SL) {
-            if (variable.Length < 4) {}
-            else {
+            if (variable.StartsWith("c")||variable.StartsWith("C")) {
+                <h1 class="ts red">@variable</h1>
+                
+            } else {
                 <h1 class="ts">@variable</h1>
             }
 
