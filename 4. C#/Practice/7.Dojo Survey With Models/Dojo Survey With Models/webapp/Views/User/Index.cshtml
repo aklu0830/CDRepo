@@ -1,5 +1,4 @@
-
-
+@model HogwartsStudent
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,21 +9,35 @@
 <body>
 <div>
     <div class="form-control">
-            <form action="/register" method="post">
-                <label>Your Name:</label>
-                <input type="text" name="Name" class="form-control"> <!-- updated -->
-                <label>House:</label>
-                <select name="House" class="form-control">
-                    <!-- updated -->
-                    <option value="Gryffindor">Gryffindor</>
-                    <option value="Ravenclaw">Ravenclaw</>
-                    <option value="Slytherin">Slytherin</>
-                    <option value="Hufflepuff">Hufflepuff</>
-                </select>
-                <label>Year:</label>
-                <input type="number" name="CurrentYear" class="form-control"> <!-- updated -->
-                <button class="btn btn-success">Submit</button>
-            </form>
+        <form action="/register" method="post">
+            <label>Your Name:</label>
+            <span asp-validation-for="Name"></span>
+            <input type="text" asp-for="Name" class="form-control"> <!-- updated -->
+            <label>Dojo Location:</label>
+
+            <select asp-for="Location" class="form-control">
+                <!-- updated -->
+                <option value="Chicago">Chicago</option>
+                <option value="San Jose">San Jose</option>
+                <option value="EH">EH</option>
+                <option value="Seattle">Seattle</option>
+            </select>
+
+            <label>Favorite Lang:</label>
+
+            <select asp-for="Language" class="form-control">
+                <!-- updated -->
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="JS">JS</option>
+            </select>
+            <label>Comments:</label>
+            <span asp-validation-for="Comments"></span>
+            <textarea class="form-control"  rows="10" asp-for="Comments"></textarea>
+            <button class="btn btn-success">Submit</button>
+        </form>
+
     </div>
 
 

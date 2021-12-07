@@ -30,3 +30,4 @@ C:\Users\aklus\CDProjects\4. C#\Practice\7.Dojo Survey With Models\Dojo Survey W
 C:\Users\aklus\CDProjects\4. C#\Practice\7.Dojo Survey With Models\Dojo Survey With Models\webapp\obj\Debug\netcoreapp3.1\webapp.Views.pdb
 C:\Users\aklus\CDProjects\4. C#\Practice\7.Dojo Survey With Models\Dojo Survey With Models\webapp\obj\Debug\netcoreapp3.1\webapp.csproj.CopyComplete
 C:\Users\aklus\CDProjects\4. C#\Practice\7.Dojo Survey With Models\Dojo Survey With Models\webapp\obj\Debug\netcoreapp3.1\Razor\Views\User\Results.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Practice\7.Dojo Survey With Models\Dojo Survey With Models\webapp\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs

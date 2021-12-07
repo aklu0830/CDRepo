@@ -10,20 +10,28 @@ namespace webapp.Controllers {
             return View();
         }
 
+
         [HttpPost("register")]
         public IActionResult RegisterWizard(HogwartsStudent student) {
-            TempData["Name"] = student.Name;
-            TempData["House"] = student.House;
-            TempData["CurrentYear"] = student.CurrentYear;
+            if (ModelState.IsValid) {
+                TempData["Name"] = student.Name;
+                TempData["Location"] = student.Location;
+                TempData["Language"] = student.Language;
+                TempData["Comments"] = student.Comments;
 
-            return Redirect("results");
+                return Redirect("results");
+            } else {
+               return View("Index");
+            }
         }
+
 
         [HttpGet("/results")]
         public IActionResult Results() {
             ViewBag.Name = TempData["Name"];
-            ViewBag.House = TempData["House"];
-            ViewBag.Year = TempData["CurrentYear"];
+            ViewBag.House = TempData["Location"];
+            ViewBag.Year = TempData["Language"];
+            ViewBag.Comments = TempData["Comments"];
             return View();
         }
     }
