@@ -1,0 +1,85 @@
+<link rel="stylesheet" type="text/css" href="css/site.css"/>
+<div class="card">
+    <div class="card-header bg-dark text-light">Level 1</div>
+    <div class="card-body">
+        <p>Using the SportsORM, complete all the following queries and show their results on Level1.cshtml.</p>
+        <ol>
+            @{
+                <h5>Leagues with Womens Teams(s):</h5>
+                foreach (var VARIABLE in ViewBag.Women) {
+                    <p>@VARIABLE.Name</p>
+                    
+                }
+                <h5>Leagues with any type of Hockey:</h5>
+                foreach (var VARIABLE in ViewBag.Hockey) {
+                    <p>@VARIABLE.Name</p>
+                }
+                <h5>Leagues that don't contain football</h5>
+                foreach (var VARIABLE in ViewBag.NoFootball) {
+                    <p>@VARIABLE.Name</p>
+                }
+                <h5>Leages that call themselves Conferences</h5>
+                foreach (var VARIABLE in ViewBag.Conferences) {
+                    <p>@VARIABLE.Name</p>
+                    
+                }
+                <h5>Leagues in the Atlantic Region</h5>
+                foreach (var VARIABLE in ViewBag.Atlantic) {
+                    <p>@VARIABLE.Name</p>
+                }
+                <h5>All teams based in dallas</h5>
+                foreach (var VARIABLE in ViewBag.Dallas) {
+                    <p>@VARIABLE.TeamName</p>
+                }
+                <h5>All teams containers the word Raptor in their Team Name</h5>
+                foreach (var VARIABLE in ViewBag.Raptors) {
+                    <p>@VARIABLE.TeamName</p>
+                    
+                }
+                <h5>All teams whose location includes city</h5>
+                foreach (var VARIABLE in ViewBag.LocationCity) {
+                    <p>@VARIABLE.TeamName</p>
+                    
+                }
+                <h5>All teams whose names begin with T</h5>
+                foreach (var VARIABLE in ViewBag.BeginsWithT) {
+                    <p>@VARIABLE.TeamName</p>
+                }
+                
+                <h5>All teams ordered alphabetically by location</h5>
+                foreach (var VARIABLE in ViewBag.OrderedByLocation) {
+                    <p>@VARIABLE.TeamName</p>
+                }
+                
+                <h5>All teams ordered in reverse alphabetical order</h5>
+
+                foreach (var VARIABLE in ViewBag.RevByAlOrder) {
+                    <p>@VARIABLE.TeamName</p>
+                }
+                
+                <h5>All players that have the last name Cooper</h5>
+                foreach (var VARIABLE in ViewBag.LastNameCooper) {
+                    <p>@VARIABLE.FirstName @VARIABLE.LastName</p>
+                    
+                }
+                <h5>All players that have the 1st name Joshua</h5>
+                foreach (var VARIABLE in ViewBag.FirstNameJoshua) {
+                    <p>@VARIABLE.FirstName @VARIABLE.LastName</p>
+                    
+                }
+                
+                <h5>All players with last name Cooper except those with 1st name Joshua</h5>
+                foreach (var VARIABLE in ViewBag.LastNameCooperNoJoshua) {
+                    <p>@VARIABLE.FirstName @VARIABLE.LastName</p>
+                    
+                }
+                
+                <h5>All players with 1st name Alexander or first name Wyatt</h5>
+                foreach (var VARIABLE in ViewBag.FirstNameAlexanderOrWyatt) {
+                    <p>@VARIABLE.FirstName @VARIABLE.LastName</p>
+                    
+                }
+            }
+        </ol>
+    </div>
+</div>

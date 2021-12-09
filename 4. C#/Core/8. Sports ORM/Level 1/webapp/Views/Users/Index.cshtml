@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SS</title>
+</head>
+<body>
+<div>
+    @{
+        foreach (var x in ViewBag.Users) {
+            <h1>@x["FirstName"] @x["LastName"]</h1>
+            Console.Write(x);
+        }
+    }
+</div>
+</body>
+</html>

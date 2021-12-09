@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    
+    @{
+        foreach (var x in ViewBag.User) {
+            <h1>One User</h1>
+            <h1>First name: @x["FirstName"]</h1>
+            <h1>Last name: @x["LastName"]</h1>
+            
+        }
+    }
+
+</div>
+</body>
+</html>

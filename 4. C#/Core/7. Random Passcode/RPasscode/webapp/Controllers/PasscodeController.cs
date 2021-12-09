@@ -4,8 +4,10 @@ using webapp.Models;
 
 namespace webapp.Controllers {
     public class PasscodeController : Controller {
+        int numGenerated = 0;
         [HttpGet("")]
         public IActionResult Index() {
+            TempData["numGenerated"] = 0;
             string genpasscode = "";
             Random r = new Random();
             string[] possibleNums = new string[] {
@@ -22,11 +24,16 @@ namespace webapp.Controllers {
                 passcode = genpasscode
             };
             
+            
+            ViewBag.NG = TempData["numGenerated"];
+            
             return View(pc);
         }
 
-        [HttpPost("")]
+        [HttpPost("res")]
         public IActionResult Process() {
+
+            Console.WriteLine(numGenerated);
             return Redirect("/");
         }
     }
