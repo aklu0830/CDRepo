@@ -1,19 +1,43 @@
-@page
-@model webapp.Views.Home.EditDish
-
-@{
-    Layout = null;
-}
-
+@model webapp.Models.User
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title></title>
+    <title>Editing Dish</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/CreateDish.css">
 </head>
 <body>
 <div>
-    
+    <div class="form-control index">
+        @{
+            foreach (var VARIABLE in ViewBag.Dish) {
+                <form method="get" action="/update/@VARIABLE.DishId">
+                    <h1 class="form-title">Editing @VARIABLE.Name</h1>
+                    <label class="sep">Chefs Name</label>
+                    <input value="@VARIABLE.Chef" name="Chef" type="text" class="form-control"/>
+                    <label class="sep">Name of Dish</label>
+                    <input value="@VARIABLE.Name" name="Name" type="text" class="form-control"/>
+                    <label class="sep"># of Calories</label>
+                    <input value="@VARIABLE.Calories" name="Calories" type="text" class="form-control"/>
+                    <label class="sep"> Tastiness</label>
+                    <select name="Tastiness" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="@VARIABLE.Tastiness" selected>@VARIABLE.Tastiness</option>
+                    </select>
+                    <label class="sep">Description: </label>
+                    <div><textarea name="Description" rows="5" class="form-control">@VARIABLE.Description</textarea></div>
+                    <button class="btn btn-success sep">Update Dish</button>
+                </form>
+            }
+        }
+        
+    </div>
+
 </div>
 </body>
 </html>

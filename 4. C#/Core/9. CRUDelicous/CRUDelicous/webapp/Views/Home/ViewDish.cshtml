@@ -8,7 +8,7 @@
 <body>
 <div>
     <div class="index">
-       
+
         @{
             <a href="/">Home</a>
             foreach (var VARIABLE in ViewBag.Dish) {
@@ -21,16 +21,22 @@
                     <div class="description">
                         <p>@VARIABLE.Description</p>
                     </div>
-                    <a><b class="padds">Calories: </b></a> @VARIABLE.Calories
+                    <a>
+                        <b class="padds">Calories: </b>
+                    </a> @VARIABLE.Calories
                     <div></div>
-                    <a><b class="padds">Tastiness:</b> </a> @VARIABLE.Tastiness
+                    <a>
+                        <b class="padds">Tastiness:</b>
+                    </a> @VARIABLE.Tastiness
 
                 </div>
 
-                <div class="buttons">
-                    <button class="btn btn-danger">Delete</button>
-                    <button class="btn btn-secondary">Edit</button>
-                </div>
+                
+                    <form class="buttons">
+                        <button class="btn btn-danger" formaction="/delete/@VARIABLE.DishId">Delete</button>
+                        <button class="btn btn-secondary" formaction="/edit/@VARIABLE.DishId">Edit</button>
+                    </form>
+                
             }
         }
     </div>

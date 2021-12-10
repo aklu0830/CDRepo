@@ -36,10 +36,57 @@ namespace webapp.Controllers {
         [HttpGet]
         [Route("/create")]
         public IActionResult CreateDish() {
-
-            
-            
             return View();
+        }
+
+        [HttpGet]
+        [Route("/edit/{id}")]
+        public IActionResult EditDish(int id) {
+            List<Dishes> dish = _context.Dishes.Where(dish => dish.DishId == id).ToList();
+            if (dish.Count < 1) {
+                return Redirect("/");
+            } else {
+                ViewBag.Dish = dish;
+                return View();
+            }
+            
+        }
+
+        [HttpGet]
+        [Route("update/{id}")]
+        public IActionResult UpdateDish(int id, string Chef,
+            string Name, int Calories,
+            int Tastiness,
+            string Description) {
+            Console.WriteLine("Name is: "+Name);
+            Dishes dish = _context.Dishes.FirstOrDefault(dish => dish.DishId == id);
+            
+            
+            
+            dish.Name = Name;
+            dish.Calories = Calories;
+            dish.Tastiness = Tastiness;
+            dish.Description = Description;
+            dish.Chef = Chef;
+            dish.UpdatedAt = DateTime.Now;
+
+            _context.SaveChanges();
+            
+            return Redirect($"/view/{id}");
+        }
+
+        [HttpGet]
+        [Route("/delete/{id}")]
+        public IActionResult DeleteDish(int id) {
+
+            Dishes dish = _context.Dishes.SingleOrDefault(dish => dish.DishId == id);
+
+            _context.Dishes.Remove(dish);
+
+            _context.SaveChanges();
+            
+            
+            return Redirect("/");
         }
 
         [HttpPost]
@@ -51,5 +98,7 @@ namespace webapp.Controllers {
             
             return Redirect("/");
         }
+        
+        
     }
 }
