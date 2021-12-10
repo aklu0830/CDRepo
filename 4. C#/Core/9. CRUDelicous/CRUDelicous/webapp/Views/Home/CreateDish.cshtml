@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Create Dish</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/CreateDish.css">
+</head>
+<body>
+<div>
+    <div class="form-control index">
+        <form method="post" action="/makedish">
+            <h1 class="form-title">Add a new Dish!</h1>
+            <label class="sep">Chefs Name</label>
+            <input name="Chef" type="text" class="form-control"/>
+            <label class="sep">Name of Dish</label>
+            <input name="Name" type="text" class="form-control"/>
+            <label class="sep"># of Calories</label>
+            <input name="Calories" type="text" class="form-control"/>
+            <label class="sep"> Tastiness</label>
+            <select name="Tastiness" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label class="sep">Description: </label>
+            <div><textarea name="Description" rows="5" class="form-control"></textarea></div>
+            <button class="btn btn-success sep">Add Dish</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

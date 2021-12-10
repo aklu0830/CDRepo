@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dish View</title>
+    <link rel="stylesheet" type="text/css" href="/css/ViewDish.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <div class="index">
+       
+        @{
+            <a href="/">Home</a>
+            foreach (var VARIABLE in ViewBag.Dish) {
+                <div class="header-box">
+                    <h1 class="header-text-lone">@VARIABLE.Name</h1>
+                    <h6 class="header-text-ltwo">@VARIABLE.Chef</h6>
+                </div>
+
+                <div class="footer-box">
+                    <div class="description">
+                        <p>@VARIABLE.Description</p>
+                    </div>
+                    <a><b class="padds">Calories: </b></a> @VARIABLE.Calories
+                    <div></div>
+                    <a><b class="padds">Tastiness:</b> </a> @VARIABLE.Tastiness
+
+                </div>
+
+                <div class="buttons">
+                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-secondary">Edit</button>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+</body>
+</html>

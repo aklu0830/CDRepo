@@ -1,0 +1,14 @@
+.index {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 500px;
+    
+}
+.form-title {
+    display: flex;
+    justify-content: center;
+}
+
+.sep {
+    margin-top: 10px;
+}

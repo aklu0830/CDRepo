@@ -1,0 +1,19 @@
+.index-title {
+    display: flex;
+    justify-content: center;
+}
+
+.main-content {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 600px;
+}
+
+.main-content-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-content-footer {
+    margin-top: 40px;
+}

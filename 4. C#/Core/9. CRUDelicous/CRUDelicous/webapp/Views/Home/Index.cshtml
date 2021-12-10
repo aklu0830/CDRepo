@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dishes</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+</head>
+<body>
+<div>
+    <h1 class="index-title">Welcome to the website</h1>
+    <div class="main-content">
+        <div class="main-content-head">
+            <h2>Checkout some recent dishes</h2>
+            <form><button class="btn btn-success" formaction="/create">Add a Dish</button></form>
+            
+        </div>
+        <div class="main-content-footer">
+            @{
+                foreach (var dish in ViewBag.Dishes) {
+                    <div>
+                        <a href="/view/@dish.DishId">@dish.Name</a> by @dish.Chef
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+</body>
+</html>
