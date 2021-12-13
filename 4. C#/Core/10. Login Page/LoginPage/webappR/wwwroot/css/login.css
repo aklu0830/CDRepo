@@ -1,0 +1,5 @@
+.spacer {
+    margin-top: 10px;
+}
+
+.field-validation-error{ color: red; font-weight: bold; }
