@@ -58,4 +58,6 @@ C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\
 C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\webappR.dll
 C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\webappR.pdb
 C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\webappR.genruntimeconfig.cache
+C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\Razor\Views\Home\Registration.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\Razor\Views\Home\Success.cshtml.g.cs
 C:\Users\aklus\CDProjects\4. C#\Core\10. Login Page\LoginPage\webappR\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
