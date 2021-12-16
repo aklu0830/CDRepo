@@ -24,13 +24,18 @@ namespace webapp.Controllers
 
         public IActionResult Index() {
             List<Chef> chefs = _context.Chefs.Include(d=>d.CreatedDishes).ToList();
-            List<Dish> dishes = _context.Dishes.ToList();
             ViewBag.Chefs = chefs;
             return View();
         }
 
         [HttpGet("/newChef")]
-        public IActionResult NewShef() {
+        public IActionResult NewChef() {
+            return View();
+        }
+
+        [HttpGet("/newDish")]
+        public IActionResult NewDish() {
+            ViewBag.Chefs = _context.Chefs.ToList();
             return View();
         }
 
@@ -43,7 +48,19 @@ namespace webapp.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             } else {
-                return View("NewShef");
+                return View("NewChef");
+            }
+        }
+
+        [HttpPost("mkNewDish")]
+        public IActionResult MakeNewDish(Dish dish) {
+            if (ModelState.IsValid) {
+                Console.WriteLine("Chef ID " + dish.ChefId);
+                _context.Dishes.Add(dish);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            } else {
+                return View("NewDish");
             }
         }
 

@@ -1,19 +1,32 @@
-@page
-@model webapp.Views.Home.NewDish
+@model webapp.Models.Dish
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 <div>
-    
+    <form method="post" asp-action="MakeNewDish">
+        <label>Name of dish:</label>
+        <input asp-for="DishName" class="form-control" type="text"/>
+        <span asp-validation-for="DishName"></span>
+        <label># of Calories</label>
+        <input asp-for="Calories" class="form-control" type="text"/>
+        <span asp-validation-for="Calories"></span>
+        <label>Description:</label>
+        <input asp-for="Description" class="form-control" type="text"/>
+        <span asp-validation-for="Description"></span>
+        <label>Chef:</label>
+        <select asp-for="ChefId" name="ChefId" class="form-control">
+            @{
+                foreach (var VARIABLE in ViewBag.Chefs) {
+                    <option value=@VARIABLE.ChefId>@VARIABLE.FirstName @VARIABLE.LastName</option>
+                }
+            }
+        </select>
+        <label>Tastiness</label>
+        <select name="Tastiness" asp-for="Tastiness" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button class="form-control btn btn-success">Add Dish</button>
+    </form>
 </div>
-</body>
-</html>
