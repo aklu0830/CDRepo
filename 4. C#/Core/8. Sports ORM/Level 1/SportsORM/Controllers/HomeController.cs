@@ -54,8 +54,14 @@ namespace SportsORM.Controllers
         }
 
         [HttpGet("level_2")]
-        public IActionResult Level2()
-        {
+        public IActionResult Level2() {
+            ViewBag.AtlanticSoccerConf = _context.Teams.Where(t=>t.LeagueId == 5);
+            ViewBag.APBP = _context.Players.Where(p => p.CurrentTeam.TeamName.Contains("Penguins") && p.CurrentTeam.Location.Contains("Boston"));
+            ViewBag.ICBCcurrent = _context.Players.Where(l => l.CurrentTeam.CurrLeague.Name.Contains("International Collegiate Baseball Conference"));
+            ViewBag.ACAFWLL = _context.Players.Where(p => p.CurrentTeam.LeagueId == 6 && p.LastName.Contains("Lopez")).ToList();
+            ViewBag.AFBPLAYERS = _context.Players.Where(p => p.CurrentTeam.CurrLeague.Sport.Contains("Football"));
+            ViewBag.TeamCurNameSofia = _context.Teams.Where(p => p.CurrentPlayers.ToList().Contains("FirstName", "Ale"));
+            
             return View();
         }
 

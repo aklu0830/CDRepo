@@ -3,14 +3,78 @@
     <div class="card-body">
         <p>Using the SportsORM, complete all the following queries and show their results on Level2.cshtml.</p>
         <ol>
-            <li>...all teams in the Atlantic Soccer Conference</li>
-            <li>...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)</li>
-            <li>...all (current) players in the International Collegiate Baseball Conference</li>
-            <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
-            <li>...all football players</li>
-            <li>...all teams with a (current) player named "Sophia"</li>
-            <li>...all leagues with a (current) player named "Sophia"</li>
-            <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+            <h4>All teams in the Atlantic Soccer Conference</h4>
+            <ul>
+                @{
+                    foreach (var VARIABLE in ViewBag.AtlanticSoccerConf) {
+                        <li>@VARIABLE.TeamName</li>
+                    }
+                }
+            </ul>
+            <h4>All (current) players on the Boston Penguins</h4>
+            <ul>
+                @{
+                    foreach (var VARIABLE in ViewBag.APBP) {
+                        <li>@VARIABLE.FirstName @VARIABLE.LastName</li>
+                    }
+                }
+            </ul>
+            <h4>All (current) players in the International Collegiate Baseball Conference</h4>
+            <ul>
+                @{
+                    foreach (var VARIABLE in ViewBag.ICBCcurrent) {
+                        <li>@VARIABLE.FirstName @VARIABLE.LastName</li>
+                    }
+                }
+            </ul>
+            <h4>All (current) players in the American Conference of Amateur Football with last name "Lopez"</h4>
+            <ul>
+                @{
+                    if ((ViewBag.ACAFWLL).Count < 1) {
+                        <li>Empty</li>
+                    }
+                    else {
+                        foreach (var VARIABLE in ViewBag.ACAFWLL) {
+                            <li>@VARIABLE.FirstName @VARIABLE.LastName</li>
+                        }
+                    }
+
+
+                }
+            </ul>
+            <h4>All foodball players</h4>
+            <ul>
+                @{
+                    foreach (var VARIABLE in ViewBag.AFBPLAYERS) {
+                        <li>@VARIABLE.FirstName @VARIABLE.LastName</li>
+                    }
+                } 
+            </ul>
+            
+            <h4>All teams with a (current) player named "Sophia"</h4>
+            
+            <ul>
+                @{
+                    foreach (var VARIABLE in COLLECTION) {
+                        
+                    }
+                }
+            </ul>
+            <h4>All leagues with a (current) player named "Sophia"</h4>
+            
+            <ul>
+                @{
+                    foreach (var VARIABLE in COLLECTION) {
+                        
+                    }
+                }
+            </ul>
+            <h4>Everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</h4>
+            @{
+                foreach (var VARIABLE in COLLECTION) {
+                    
+                }
+            }
         </ol>
     </div>
 </div>
