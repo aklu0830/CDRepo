@@ -28,6 +28,12 @@ namespace webapp.Controllers
             return View();
         }
 
+        [HttpGet("/dishes")]
+        public IActionResult Dishes() {
+            ViewBag.Dishes = _context.Dishes.Include(chef=>chef.Chef).ToList();
+            return View();
+        }
+
         [HttpGet("/newChef")]
         public IActionResult NewChef() {
             return View();

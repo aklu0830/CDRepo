@@ -9,7 +9,9 @@ namespace webapp.Models {
         [Required(ErrorMessage = "Field cannot be empty")]
         [MinLength(3)]
         public string DishName { get; set; }
+        
         public int Calories { get; set; }
+        
         public int Tastiness { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
