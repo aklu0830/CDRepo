@@ -59,3 +59,5 @@ C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webap
 C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webapp\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webapp\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\NewShef.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\NewDish.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Core\11. Chefs and Dishes\Chefs and Dishes\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dishes.cshtml.g.cs
