@@ -16,8 +16,7 @@ namespace webapp.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
-                    Dob = table.Column<DateTime>(nullable: false),
-                    Age = table.Column<int>(nullable: false)
+                    Dob = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

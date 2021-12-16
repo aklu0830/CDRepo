@@ -23,9 +23,6 @@ namespace webapp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Dob")
                         .HasColumnType("datetime(6)");
 

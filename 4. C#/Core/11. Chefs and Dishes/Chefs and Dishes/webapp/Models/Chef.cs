@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace webapp.Models {
     public class Chef {
@@ -13,9 +14,7 @@ namespace webapp.Models {
         [MinLength(2,ErrorMessage = "Must be atleast 2 characters")]
         public string LastName { get; set; }
         public DateTime Dob { get; set; }
-        [Required(ErrorMessage = "Field cannot be empty")]
-        public int Age { get; set; }
         public List<Dish> CreatedDishes { get; set; }
-
+        
     }
 }

@@ -9,7 +9,7 @@ using webapp.Models;
 namespace webapp.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211216073616_FirstMigration")]
+    [Migration("20211216201339_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,9 +23,6 @@ namespace webapp.Migrations
                 {
                     b.Property<int>("ChefId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Age")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Dob")

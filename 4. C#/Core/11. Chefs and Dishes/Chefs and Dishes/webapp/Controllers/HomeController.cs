@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using webapp.Models;
 
@@ -22,6 +23,9 @@ namespace webapp.Controllers
 
 
         public IActionResult Index() {
+            List<Chef> chefs = _context.Chefs.Include(d=>d.CreatedDishes).ToList();
+            List<Dish> dishes = _context.Dishes.ToList();
+            ViewBag.Chefs = chefs;
             return View();
         }
 
