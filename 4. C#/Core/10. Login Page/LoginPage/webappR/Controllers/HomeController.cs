@@ -106,7 +106,6 @@ namespace webappR.Controllers {
                 ViewBag.ID = HttpContext.Session.GetInt32("UserID");
                 return View();
             } else {
-
                 return Redirect("login");
             }
             
