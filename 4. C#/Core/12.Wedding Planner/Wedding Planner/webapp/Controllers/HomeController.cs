@@ -49,7 +49,7 @@ namespace webapp.Controllers {
                 return RedirectToAction("Login");
             }
 
-            ViewBag.LoggedInUser = HttpContext.Session.GetInt32("UserID");
+            ViewBag.LoggedInUser = _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
             ViewBag.Weddings = _context.Weddings.Include(g=>g.Guests).ToList();
             
             return View();
