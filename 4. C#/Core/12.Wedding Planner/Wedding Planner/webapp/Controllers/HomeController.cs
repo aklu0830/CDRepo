@@ -123,6 +123,18 @@ namespace webapp.Controllers {
             return RedirectToAction("Dashboard");
             
         }
+        
+        [HttpGet("/unrsvp/{wid}/{uid}")]
+        public IActionResult unRSVP(int wid, int uid) {
+            RSVP rsvp = _context.RSVPs.FirstOrDefault(d => d.WeddingId == wid && d.UserId == uid);
+
+            _context.RSVPs.Remove(rsvp);
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard");
+            
+        }
+        
+        
 
         [HttpPost("/createusr")]
         public IActionResult Register(User user) {

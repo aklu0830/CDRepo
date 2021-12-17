@@ -14,7 +14,7 @@
     </thead>
     <tbody>
     @{
-        foreach (var VARIABLE in ViewBag.Weddings) {
+        foreach (Wedding VARIABLE in ViewBag.Weddings) {
             <tr>
                 <td>@VARIABLE.WedderOne & @VARIABLE.WedderTwo</td>
                 <td>@VARIABLE.Date.ToString("MMMM dd yyyy")</td>
@@ -24,14 +24,21 @@
                         <td>
                             <a href="/delete/@VARIABLE.WeddingId" class="btn btn-danger">Delete</a>
                             <a class="btn btn-success">View</a>
-                            
+
                         </td>
                     } else {
-                        <td>
-                            <a class="btn btn-success">View</a>
-                            <a href="/rsvp/@VARIABLE.WeddingId/@ViewBag.LoggedInUser.UserId" class="btn btn-primary">RSVP</a>
-                        </td>
-                        
+                        if (VARIABLE.Guests.Any(f => f.UserId == ViewBag.LoggedInUser.UserId)) {
+                            <td>
+                                <a href="/unrsvp/@VARIABLE.WeddingId/@ViewBag.LoggedInUser.UserId" class="btn btn-danger">Un-RSVP</a>
+                                <a class="btn btn-success">View</a>
+                            </td>
+                        }
+                        else {
+                            <td>
+                                <a class="btn btn-success">View</a>
+                                <a href="/rsvp/@VARIABLE.WeddingId/@ViewBag.LoggedInUser.UserId" class="btn btn-primary">RSVP</a>
+                            </td>
+                        }
                     }
                 }
             </tr>
