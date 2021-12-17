@@ -112,7 +112,18 @@ namespace webapp.Controllers {
             
             return RedirectToAction("Dashboard");
         }
-        
+
+        [HttpGet("/rsvp/{wid}/{uid}")]
+        public IActionResult RSVP(int wid, int uid) {
+            RSVP rsvp = new RSVP();
+            rsvp.WeddingId = wid;
+            rsvp.UserId = uid;
+            _context.Add(rsvp);
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard");
+            
+        }
+
         [HttpPost("/createusr")]
         public IActionResult Register(User user) {
             
