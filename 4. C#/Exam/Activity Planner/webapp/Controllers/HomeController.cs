@@ -49,7 +49,6 @@ namespace webapp.Controllers {
             if (HttpContext.Session.GetInt32("UserID") == null) {
                 return RedirectToAction("Login");
             }
-
             ViewBag.LoggedInUser =
                 _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
             ViewBag.Activities =
@@ -151,7 +150,8 @@ namespace webapp.Controllers {
         public IActionResult ViewActivity(int aid) {
             ViewBag.LoggedInUser =
                 _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
-            ViewBag.Activity = _context.Activities.FirstOrDefault(a => a.ActivityId == aid);
+            ViewBag.Activity = _context.Activities.Where(a => a.ActivityId == aid).Include(p=>p.Poster).Include(g=>g.Guests).ToList();
+            ViewBag.AcGuests = _context.RSVPs.Where(a => a.ActivityId == aid).Include(u=>u.User).ToList();
 
             return View();
         }

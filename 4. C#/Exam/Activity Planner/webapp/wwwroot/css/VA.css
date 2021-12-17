@@ -1,0 +1,17 @@
+
+.sub-head {
+    margin-left: 30px;
+}
+
+.view-activity-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-spacer{
+    margin-top: 30px;
+}
+
+.view-spacer-v2 {
+    margin-top: 10px;
+}

@@ -51,7 +51,7 @@
                     if (ViewBag.LoggedInUser.UserId == VARIABLE.UserId) {
                         <td>
                             <a href="/delete/@VARIABLE.ActivityId" class="btn btn-danger">Delete</a>
-                            <a class="btn btn-success">View</a>
+                            <a href="/activity/@VARIABLE.ActivityId" class="btn btn-success">View</a>
 
                         </td>
                     }
@@ -59,13 +59,13 @@
                         if (VARIABLE.Guests.Any(f => f.UserId == ViewBag.LoggedInUser.UserId)) {
                             <td>
                                 <a href="/unrsvp/@VARIABLE.ActivityId/@ViewBag.LoggedInUser.UserId" class="btn btn-danger">Un-RSVP</a>
-                                <a class="btn btn-success">View</a>
+                                <a href="/activity/@VARIABLE.ActivityId" class="btn btn-success">View</a>
                             </td>
                         }
                         else {
                             <td>
                                 <a href="/rsvp/@VARIABLE.ActivityId/@ViewBag.LoggedInUser.UserId" class="btn btn-primary">RSVP</a>
-                                <a class="btn btn-success">View</a>
+                                <a href="/activity/@VARIABLE.ActivityId" class="btn btn-success">View</a>
 
                             </td>
                         }
