@@ -28,20 +28,20 @@ namespace webapp.Controllers {
         public IActionResult Privacy() {
             return View();
         }
-        
+
         [HttpGet("/register")]
         public IActionResult Registration() {
             return View();
         }
-        
+
         [HttpGet("login")]
         public IActionResult Login() {
             if (HttpContext.Session.GetInt32("UserID").HasValue) {
                 return RedirectToAction("Dashboard");
-            } else {
+            }
+            else {
                 return View();
             }
-            
         }
 
         [HttpGet("/dashboard")]
@@ -50,29 +50,41 @@ namespace webapp.Controllers {
                 return RedirectToAction("Login");
             }
 
-            ViewBag.LoggedInUser = _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
+            ViewBag.LoggedInUser =
+                _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
             ViewBag.Activities =
-                _context.Activities.Include(g => g.Guests).Include(f=>f.Poster).ToList();
-            
+                _context.Activities.Include(g => g.Guests).Include(f => f.Poster).ToList();
+
             return View();
         }
 
         [HttpGet("/newActivity")]
         public IActionResult newActivity() {
+            if (HttpContext.Session.GetInt32("UserID") == null) {
+                return RedirectToAction("Login");
+            }
+
             return View();
         }
 
         [HttpPost("/mkActivity")]
         public IActionResult makeActivity(Activity activity) {
+            
+            if (HttpContext.Session.GetInt32("UserID") == null) {
+                return RedirectToAction("Login");
+            }
+            
             if (ModelState.IsValid) {
                 activity.UserId = (int) HttpContext.Session.GetInt32("UserID");
                 _context.Add(activity);
                 _context.SaveChanges();
                 return RedirectToAction("Dashboard");
-            } else {
+            }
+            else {
                 return View("newActivity");
             }
-
+            
+            
         }
 
         [HttpPost("/processlogin")]
@@ -92,15 +104,16 @@ namespace webapp.Controllers {
                 if (result == 0) {
                     ModelState.AddModelError("Email", "Invalid Email/Password");
                     return View("Login");
-                } else {
+                }
+                else {
                     HttpContext.Session.SetInt32("UserID", userInDB.UserId);
                     Console.WriteLine("Logged In UserID: " + HttpContext.Session.GetInt32("UserID"));
-                    
 
 
                     return Redirect("/dashboard");
                 }
-            } else {
+            }
+            else {
                 return View("Login");
             }
         }
@@ -108,10 +121,10 @@ namespace webapp.Controllers {
         [HttpGet("/delete/{aid}")]
         public IActionResult Delete(int aid) {
             Activity toDelete = _context.Activities.SingleOrDefault(f => f.ActivityId == aid);
-            
+
             _context.Activities.Remove(toDelete);
             _context.SaveChanges();
-            
+
             return RedirectToAction("Dashboard");
         }
 
@@ -123,9 +136,8 @@ namespace webapp.Controllers {
             _context.Add(rsvp);
             _context.SaveChanges();
             return RedirectToAction("Dashboard");
-            
         }
-        
+
         [HttpGet("/unrsvp/{wid}/{uid}")]
         public IActionResult unRSVP(int wid, int uid) {
             RSVP rsvp = _context.RSVPs.FirstOrDefault(d => d.ActivityId == wid && d.UserId == uid);
@@ -133,45 +145,45 @@ namespace webapp.Controllers {
             _context.RSVPs.Remove(rsvp);
             _context.SaveChanges();
             return RedirectToAction("Dashboard");
-            
         }
 
         [HttpGet("/activity/{aid}")]
         public IActionResult ViewActivity(int aid) {
-            ViewBag.LoggedInUser = _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
+            ViewBag.LoggedInUser =
+                _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
             ViewBag.Activity = _context.Activities.FirstOrDefault(a => a.ActivityId == aid);
 
             return View();
         }
-        
-        
+
 
         [HttpPost("/createusr")]
         public IActionResult Register(User user) {
-            
             if (ModelState.IsValid) {
                 if (_context.Users.Any(u => u.Email == user.Email)) {
                     ModelState.AddModelError("Email", "This email already exists in the database");
                     return View("Registration");
-                } else {
+                }
+                else {
                     PasswordHasher<User> hasher = new PasswordHasher<User>();
                     user.Password = hasher.HashPassword(user, user.Password);
                     _context.Add(user);
                     _context.SaveChanges();
                     return Redirect("/");
                 }
-            } else {
+            }
+            else {
                 return View("Registration");
             }
 
             return Redirect("/");
         }
-        
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() {
-            return View(new ErrorViewModel {RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+            return View(new ErrorViewModel
+                {RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
     }
 }
