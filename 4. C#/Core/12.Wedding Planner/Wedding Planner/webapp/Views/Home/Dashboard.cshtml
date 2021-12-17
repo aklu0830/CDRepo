@@ -1,4 +1,6 @@
-<h1>Welcome to the wedding planner</h1>
+@using System.Net.Http
+@using Microsoft.AspNetCore.Http
+<h1>Welcome to the wedding planner, @ViewBag.LoggedInUser.</h1>
 <button class="btn btn-danger">Log out</button>
 
 <table class="table table-dark">
@@ -17,11 +19,24 @@
                 <td>@VARIABLE.WedderOne & @VARIABLE.WedderTwo</td>
                 <td>@VARIABLE.Date.ToString("MMMM dd yyyy")</td>
                 <td>@VARIABLE.Guests.Count</td>
-                <td>t</td>
-
+                @{
+                    if (ViewBag.LoggedInUser == VARIABLE.UserId) {
+                        <td>
+                            <a class="btn btn-danger">Delete</a>
+                            <a class="btn btn-success">View</a>
+                            
+                        </td>
+                    } else {
+                        <td>
+                            <a class="btn btn-success">View</a>
+                            <a class="btn btn-primary">RSVP</a>
+                        </td>
+                        
+                    }
+                }
             </tr>
         }
     }
-    
+
     </tbody>
 </table>
