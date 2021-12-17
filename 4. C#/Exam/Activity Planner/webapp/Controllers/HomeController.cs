@@ -179,6 +179,12 @@ namespace webapp.Controllers {
             return Redirect("/");
         }
 
+        [HttpGet("/logout")]
+        public IActionResult Logout() {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Dashboard");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() {
