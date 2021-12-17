@@ -52,7 +52,8 @@ namespace webapp.Controllers {
             ViewBag.LoggedInUser =
                 _context.Users.FirstOrDefault(d => d.UserId == HttpContext.Session.GetInt32("UserID"));
             ViewBag.Activities =
-                _context.Activities.Include(g => g.Guests).Include(f => f.Poster).ToList();
+                _context.Activities.Include(g => g.Guests).Include(f => f.Poster).OrderBy(d => d.Date)
+                    .ToList();
 
             return View();
         }
