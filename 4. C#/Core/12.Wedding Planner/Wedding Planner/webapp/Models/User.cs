@@ -1,11 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webapp.Models {
     public class User {
-        [Key] 
-        public int UserId { get; set; }
+        [Key] public int UserId { get; set; }
 
         [Required(ErrorMessage = "This field cannot be empty")]
         [EmailAddress]
@@ -28,10 +28,15 @@ namespace webapp.Models {
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+
+        public List<Wedding> WeddingsCreated { get; set; }
+
+        public List<RSVP> WeddingsRSVPed { get; set; }
+
         [NotMapped]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
-
-        public List<Wedding> rsvps { get; set; }
     }
 }
