@@ -60,3 +60,5 @@ C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\o
 C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\obj\Debug\netcoreapp3.1\webapp.genruntimeconfig.cache
 C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Registration.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\aklus\CDProjects\4. C#\Core\12.Wedding Planner\Wedding Planner\webapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\newWedding.cshtml.g.cs

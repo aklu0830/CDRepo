@@ -1,0 +1,29 @@
+@model Wedding
+<head>
+    <link rel="stylesheet" type="text/css" href="css/newWedding.css"/>
+    <title>Plan Wedding</title>
+</head>
+
+<div class="header-section">
+    <div class="part-one">
+        <h1>Plan your wedding</h1>
+    </div>
+    <div class="part-two">
+        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+
+<div>
+    <form>
+        <label>Wedder One:</label>
+        <input asp-for="WedderOne" type="text" class="form-control"/>
+        <label>Wedder Two:</label>
+        <input asp-for="WedderTwo" type="text" class="form-control"/>
+        <label>Date:</label>
+        <input asp-for="Date" type="date" class="form-control"/>
+        <label>Address:</label>
+        <input asp-for="Address" type="text" class="form-control"/>
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>

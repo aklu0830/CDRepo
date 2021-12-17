@@ -9,7 +9,7 @@ using webapp.Models;
 namespace webapp.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211217060146_FirstMigration")]
+    [Migration("20211217082353_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,7 +95,7 @@ namespace webapp.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("WedderOne")
@@ -130,9 +130,7 @@ namespace webapp.Migrations
                 {
                     b.HasOne("webapp.Models.User", "Poster")
                         .WithMany("WeddingsCreated")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

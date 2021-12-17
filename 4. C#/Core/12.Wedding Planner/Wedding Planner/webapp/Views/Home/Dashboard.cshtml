@@ -1,0 +1,27 @@
+<h1>Welcome to the wedding planner</h1>
+<button class="btn btn-danger">Log out</button>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var VARIABLE in ViewBag.Weddings) {
+            <tr>
+                <td>@VARIABLE.WedderOne @VARIABLE.WedderTwo</td>
+                <td>@VARIABLE.Date</td>
+                <td>@VARIABLE.Guests.Count</td>
+                <td>t</td>
+
+            </tr>
+        }
+    }
+    
+    </tbody>
+</table>

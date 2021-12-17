@@ -93,7 +93,7 @@ namespace webapp.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("WedderOne")
@@ -128,9 +128,7 @@ namespace webapp.Migrations
                 {
                     b.HasOne("webapp.Models.User", "Poster")
                         .WithMany("WeddingsCreated")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

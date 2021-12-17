@@ -37,7 +37,7 @@ namespace webapp.Migrations
                     WedderTwo = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
@@ -49,7 +49,7 @@ namespace webapp.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

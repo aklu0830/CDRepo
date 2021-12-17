@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using webapp.Models;
 
@@ -35,6 +36,32 @@ namespace webapp.Controllers {
         [HttpGet("login")]
         public IActionResult Login() {
             return View();
+        }
+
+        [HttpGet("/dashboard")]
+        public IActionResult Dashboard() {
+            
+            ViewBag.Weddings = _context.Weddings.Include(g=>g.Guests).ToList();
+            
+            return View();
+        }
+
+        [HttpGet("/newWedding")]
+        public IActionResult newWedding() {
+            return View();
+        }
+
+        [HttpPost("/mkWedding")]
+        public IActionResult makeWedding(Wedding wedding) {
+            if (ModelState.IsValid) {
+                wedding.UserId = HttpContext.Session.GetInt32("UserID");
+                _context.Add(wedding);
+                _context.SaveChanges();
+                return RedirectToAction("Dashboard");
+            } else {
+                return View("newWedding");
+            }
+
         }
 
         [HttpPost("/processlogin")]
@@ -88,6 +115,8 @@ namespace webapp.Controllers {
 
             return Redirect("/");
         }
+        
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() {

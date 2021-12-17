@@ -15,7 +15,7 @@ namespace webapp.Models {
 
         public string Address { get; set; }
 
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public User Poster { get; set; }
 
         public List<RSVP> Guests { get; set; }
