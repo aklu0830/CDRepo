@@ -15,7 +15,7 @@ namespace webapp.Models {
         public string Name { get; set; }
 
         [Required(ErrorMessage = "This field cannot be empty")]
-        [MinLength(8, ErrorMessage = "Password must be at least 8 characters")]
+        [RegularExpression("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$",ErrorMessage = "Password must include a Minimum eight characters, at least one letter, one number and one special character")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
