@@ -14,8 +14,8 @@
     @{
         foreach (var VARIABLE in ViewBag.Weddings) {
             <tr>
-                <td>@VARIABLE.WedderOne @VARIABLE.WedderTwo</td>
-                <td>@VARIABLE.Date</td>
+                <td>@VARIABLE.WedderOne & @VARIABLE.WedderTwo</td>
+                <td>@VARIABLE.Date.ToString("MMMM dd yyyy")</td>
                 <td>@VARIABLE.Guests.Count</td>
                 <td>t</td>
 

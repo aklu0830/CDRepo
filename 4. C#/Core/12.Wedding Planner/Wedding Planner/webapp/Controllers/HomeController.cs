@@ -35,11 +35,19 @@ namespace webapp.Controllers {
         
         [HttpGet("login")]
         public IActionResult Login() {
-            return View();
+            if (HttpContext.Session.GetInt32("UserID").HasValue) {
+                return RedirectToAction("Dashboard");
+            } else {
+                return View();
+            }
+            
         }
 
         [HttpGet("/dashboard")]
         public IActionResult Dashboard() {
+            if (HttpContext.Session.GetInt32("UserID") == null) {
+                return RedirectToAction("Login");
+            }
             
             ViewBag.Weddings = _context.Weddings.Include(g=>g.Guests).ToList();
             
@@ -81,16 +89,15 @@ namespace webapp.Controllers {
                 if (result == 0) {
                     ModelState.AddModelError("Email", "Invalid Email/Password");
                     return View("Login");
-                }
-                else {
+                } else {
                     HttpContext.Session.SetInt32("UserID", userInDB.UserId);
+                    Console.WriteLine("Logged In UserID: " + HttpContext.Session.GetInt32("UserID"));
                     
 
 
-                    return Redirect("success");
+                    return Redirect("/dashboard");
                 }
-            }
-            else {
+            } else {
                 return View("Login");
             }
         }
