@@ -9,7 +9,7 @@ using webapp.Models;
 namespace webapp.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211217161852_FirstMigration")]
+    [Migration("20211217190013_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,6 +92,7 @@ namespace webapp.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Name")

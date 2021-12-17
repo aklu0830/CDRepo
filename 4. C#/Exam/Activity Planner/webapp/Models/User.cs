@@ -7,6 +7,7 @@ namespace webapp.Models {
     public class User {
         [Key] 
         public int UserId { get; set; }
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required(ErrorMessage = "This field cannot be empty")]

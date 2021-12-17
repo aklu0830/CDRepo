@@ -22,7 +22,7 @@ namespace webapp.Controllers {
         }
 
         public IActionResult Index() {
-            return View();
+            return RedirectToAction("Dashboard");
         }
 
         public IActionResult Privacy() {

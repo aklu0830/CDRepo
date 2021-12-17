@@ -11,6 +11,7 @@ namespace webapp.Models {
         [Required]
         public string Time { get; set; }
         [Required]
+        [NoBeforeDateTime]
         public DateTime Date { get; set; }
         [Required]
         public int Duration { get; set; }
@@ -26,5 +27,20 @@ namespace webapp.Models {
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+    }
+    
+    public class NoBeforeDateTime : ValidationAttribute {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext) {
+            if (value is DateTime) {
+                DateTime checkMe = (DateTime) value;
+
+                if (checkMe < DateTime.Now) {
+                    return new ValidationResult("This date has already passed");
+                } else {
+                    return ValidationResult.Success;
+                }
+            }
+            return base.IsValid(value, validationContext);
+        }
     }
 } 
