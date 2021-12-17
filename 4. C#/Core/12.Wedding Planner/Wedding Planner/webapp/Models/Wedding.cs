@@ -18,9 +18,9 @@ namespace webapp.Models {
         public int UserId { get; set; }
         public User Poster { get; set; }
 
-        public List<RSVP> RSVPedBy { get; set; }
+        public List<RSVP> Guests { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
-}
+} 

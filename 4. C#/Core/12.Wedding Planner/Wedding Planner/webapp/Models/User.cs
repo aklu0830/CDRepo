@@ -36,7 +36,9 @@ namespace webapp.Models {
         public List<RSVP> WeddingsRSVPed { get; set; }
 
         [NotMapped]
+        [Required]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
     }
 }
