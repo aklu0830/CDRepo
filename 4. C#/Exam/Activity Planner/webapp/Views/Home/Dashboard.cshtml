@@ -1,0 +1,79 @@
+@using System.Net.Http
+@using Microsoft.AspNetCore.Http
+<head>
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+</head>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow ">
+        <div class="container spacer">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><h2>Dojo Activity Center</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="options">
+                <h7 class="welcome-msg">Welcome @ViewBag.LoggedInUser.Name</h7>
+                <a class="btn btn-danger welcome-msg">Log out</a>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>Activity</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Event Coordinator</th>
+        <th>Participants</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (Activity VARIABLE in ViewBag.Activities) {
+            <tr>
+                <td>@VARIABLE.Title</td>
+                <td>@VARIABLE.Date.ToString("MM/dd") at @VARIABLE.Time</td>
+                <td>@VARIABLE.Duration @VARIABLE.DurationType</td>
+                <td>@VARIABLE.Poster.Name</td>
+                <td>@VARIABLE.Guests.Count</td>
+                @{
+                    if (ViewBag.LoggedInUser.UserId == VARIABLE.UserId) {
+                        <td>
+                            <a href="/delete/@VARIABLE.ActivityId" class="btn btn-danger">Delete</a>
+                            <a class="btn btn-success">View</a>
+
+                        </td>
+                    }
+                    else {
+                        if (VARIABLE.Guests.Any(f => f.UserId == ViewBag.LoggedInUser.UserId)) {
+                            <td>
+                                <a href="/unrsvp/@VARIABLE.ActivityId/@ViewBag.LoggedInUser.UserId" class="btn btn-danger">Un-RSVP</a>
+                                <a class="btn btn-success">View</a>
+                            </td>
+                        }
+                        else {
+                            <td>
+                                <a href="/rsvp/@VARIABLE.ActivityId/@ViewBag.LoggedInUser.UserId" class="btn btn-primary">RSVP</a>
+                                <a class="btn btn-success">View</a>
+
+                            </td>
+                        }
+                    }
+                }
+            </tr>
+        }
+    }
+
+    </tbody>
+</table>

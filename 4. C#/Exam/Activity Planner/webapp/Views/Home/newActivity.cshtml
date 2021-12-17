@@ -1,0 +1,38 @@
+@model Activity
+<head>
+    <link rel="stylesheet" type="text/css" href="css/newWedding.css"/>
+    <title>Create an activity</title>
+</head>
+
+<div class="header-section">
+    <div class="part-one">
+        <h1>Create an activity</h1>
+    </div>
+    <div class="part-two">
+        <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+<div>
+    <form method="post" asp-action="makeActivity">
+        <label>Title:</label>
+        <input asp-for="Title" type="text" class="form-control"/>
+        <label>Time:</label>
+        <input asp-for="Time" type="text" class="form-control"/>
+        <label>Date:</label>
+        <input asp-for="Date" type="date" class="form-control"/>
+        <div>
+            <label>Duration:</label>
+            <input class="form-control" type="text" asp-for="Duration"/>
+            <label>Duration Type</label>
+            <select asp-for="DurationType" class="form-control">
+                <option value="Hours">Hours</option>
+                <option value="Minutes">Minutes</option>
+                <option value="Days">Days</option>
+            </select>
+        </div>
+        <label>Description:</label>
+        <input asp-for="Description" type="text" class="form-control"/>
+        <button class="btn btn-success">Create Activity</button>
+    </form>
+</div>
