@@ -102,6 +102,16 @@ namespace webapp.Controllers {
                 return View("Login");
             }
         }
+
+        [HttpGet("/delete/{wid}")]
+        public IActionResult Delete(int wid) {
+            Wedding toDelete = _context.Weddings.SingleOrDefault(f => f.WeddingId == wid);
+            
+            _context.Weddings.Remove(toDelete);
+            _context.SaveChanges();
+            
+            return RedirectToAction("Dashboard");
+        }
         
         [HttpPost("/createusr")]
         public IActionResult Register(User user) {
