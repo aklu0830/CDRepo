@@ -3,3 +3,9 @@
 }
 
 .field-validation-error{ color: red; font-weight: bold; }
+
+.login-page-buttons {
+    display: flex;
+    justify-content: center;
+    border: black 2px solid;
+}

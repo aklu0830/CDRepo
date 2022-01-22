@@ -67,6 +67,11 @@ namespace webapp.Controllers {
             return View();
         }
 
+        [HttpPost("/registerpage")]
+        public IActionResult registerPage() {
+            return Redirect("register");
+        }
+
         [HttpPost("/mkActivity")]
         public IActionResult makeActivity(Activity activity) {
             
